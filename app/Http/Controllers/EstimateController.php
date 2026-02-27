@@ -1,0 +1,60 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Exports\EstimateExport;
+use App\Models\Estimate;
+use App\Models\Project;
+use App\Services\EstimateGenerator;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Str;
+use Illuminate\Validation\ValidationException;
+use Illuminate\View\View;
+use Maatwebsite\Excel\Facades\Excel;
+
+class EstimateController extends Controller
+{
+    public function __construct(
+        private readonly EstimateGenerator $estimateGenerator
+    ) {}
+
+    public function store(Project $project): RedirectResponse
+    {
+        try {
+            $estimate = $this->estimateGenerator->generate($project);
+        } catch (ValidationException $exception) {
+            throw $exception;
+        } catch (\Throwable $exception) {
+            report($exception);
+
+            return redirect()
+                ->route('projects.show', $project)
+                ->with('status', 'Estimate generation failed. Please validate your items, assemblies, and mappings.');
+        }
+
+        return redirect()
+            ->route('projects.estimates.show', [$project, $estimate])
+            ->with('status', 'Estimate generated successfully.');
+    }
+
+    public function show(Project $project, Estimate $estimate): View
+    {
+        abort_unless((int) $estimate->project_id === (int) $project->id, 404);
+
+        $estimate->load(['project', 'projectRequirement', 'lines', 'breakdowns']);
+
+        return view('estimates.show', compact('project', 'estimate'));
+    }
+
+    public function export(Project $project, Estimate $estimate)
+    {
+        abort_unless((int) $estimate->project_id === (int) $project->id, 404);
+
+        $estimate->load(['project', 'projectRequirement', 'lines', 'breakdowns']);
+
+        $fileName = Str::slug($project->name ?: 'project')
+            .'-estimate-'.$estimate->id.'.xlsx';
+
+        return Excel::download(new EstimateExport($estimate), $fileName);
+    }
+}

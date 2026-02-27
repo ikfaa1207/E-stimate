@@ -1,0 +1,1245 @@
+0 verbose cli C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\npm\bin\npm-cli.js
+1 info using npm@11.6.2
+2 info using node@v24.13.0
+3 silly config load:file:C:\Program Files\nodejs\node_modules\npm\npmrc
+4 silly config load:file:C:\Users\Admin\Project-Coder\e-stimate\.npmrc
+5 silly config load:file:C:\Users\Admin\.npmrc
+6 silly config load:file:C:\Users\Admin\AppData\Roaming\npm\etc\npmrc
+7 verbose title npm install
+8 verbose argv "install"
+9 verbose logfile logs-max:10 dir:c:\Users\Admin\Project-Coder\e-stimate\.npm-cache\_logs\2026-02-27T14_49_24_945Z-
+10 verbose logfile c:\Users\Admin\Project-Coder\e-stimate\.npm-cache\_logs\2026-02-27T14_49_24_945Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:4496293888 maxSize:1124073472 maxEntrySize:562036736
+13 silly idealTree buildDeps
+14 silly fetch manifest @tailwindcss/forms@^0.5.2
+15 silly packumentCache full:https://registry.npmjs.org/@tailwindcss%2fforms cache-miss
+16 http fetch GET 200 https://registry.npmjs.org/@tailwindcss%2fforms 404ms (cache revalidated)
+17 silly packumentCache full:https://registry.npmjs.org/@tailwindcss%2fforms set size:234081 disposed:false
+18 silly fetch manifest tailwindcss@^3.1.0
+19 silly packumentCache full:https://registry.npmjs.org/tailwindcss cache-miss
+20 http fetch GET 200 https://registry.npmjs.org/tailwindcss 76ms (cache revalidated)
+21 silly packumentCache full:https://registry.npmjs.org/tailwindcss set size:10227949 disposed:false
+22 silly fetch manifest alpinejs@^3.4.2
+23 silly packumentCache full:https://registry.npmjs.org/alpinejs cache-miss
+24 http fetch GET 200 https://registry.npmjs.org/alpinejs 61ms (cache revalidated)
+25 silly packumentCache full:https://registry.npmjs.org/alpinejs set size:339491 disposed:false
+26 silly fetch manifest autoprefixer@^10.4.2
+27 silly packumentCache full:https://registry.npmjs.org/autoprefixer cache-miss
+28 http fetch GET 200 https://registry.npmjs.org/autoprefixer 59ms (cache revalidated)
+29 silly packumentCache full:https://registry.npmjs.org/autoprefixer set size:1307925 disposed:false
+30 silly fetch manifest postcss@^8.4.31
+31 silly packumentCache full:https://registry.npmjs.org/postcss cache-miss
+32 http fetch GET 200 https://registry.npmjs.org/postcss 61ms (cache revalidated)
+33 silly packumentCache full:https://registry.npmjs.org/postcss set size:696248 disposed:false
+34 silly fetch manifest axios@^1.6.4
+35 silly packumentCache full:https://registry.npmjs.org/axios cache-miss
+36 http fetch GET 200 https://registry.npmjs.org/axios 62ms (cache revalidated)
+37 silly packumentCache full:https://registry.npmjs.org/axios set size:694749 disposed:false
+38 silly fetch manifest laravel-vite-plugin@^1.0
+39 silly packumentCache full:https://registry.npmjs.org/laravel-vite-plugin cache-miss
+40 http fetch GET 200 https://registry.npmjs.org/laravel-vite-plugin 55ms (cache revalidated)
+41 silly packumentCache full:https://registry.npmjs.org/laravel-vite-plugin set size:124983 disposed:false
+42 silly fetch manifest vite@^5.0
+43 silly packumentCache full:https://registry.npmjs.org/vite cache-miss
+44 http fetch GET 200 https://registry.npmjs.org/vite 110ms (cache revalidated)
+45 silly packumentCache full:https://registry.npmjs.org/vite set size:38733997 disposed:false
+46 silly fetch manifest @types/node@^18.0.0 || >=20.0.0
+47 silly packumentCache full:https://registry.npmjs.org/@types%2fnode cache-miss
+48 http fetch GET 200 https://registry.npmjs.org/@types%2fnode 95ms (cache revalidated)
+49 silly packumentCache full:https://registry.npmjs.org/@types%2fnode set size:10892656 disposed:false
+50 silly fetch manifest less@*
+51 silly packumentCache full:https://registry.npmjs.org/less cache-miss
+52 http fetch GET 200 https://registry.npmjs.org/less 57ms (cache revalidated)
+53 silly packumentCache full:https://registry.npmjs.org/less set size:430648 disposed:false
+54 silly fetch manifest lightningcss@^1.21.0
+55 silly packumentCache full:https://registry.npmjs.org/lightningcss cache-miss
+56 http fetch GET 200 https://registry.npmjs.org/lightningcss 53ms (cache revalidated)
+57 silly packumentCache full:https://registry.npmjs.org/lightningcss set size:182441 disposed:false
+58 silly fetch manifest sass@*
+59 silly packumentCache full:https://registry.npmjs.org/sass cache-miss
+60 http fetch GET 200 https://registry.npmjs.org/sass 70ms (cache revalidated)
+61 silly packumentCache full:https://registry.npmjs.org/sass set size:722061 disposed:false
+62 silly fetch manifest sass-embedded@*
+63 silly packumentCache full:https://registry.npmjs.org/sass-embedded cache-miss
+64 http fetch GET 200 https://registry.npmjs.org/sass-embedded 56ms (cache revalidated)
+65 silly packumentCache full:https://registry.npmjs.org/sass-embedded set size:407397 disposed:false
+66 silly fetch manifest stylus@*
+67 silly packumentCache full:https://registry.npmjs.org/stylus cache-miss
+68 http fetch GET 200 https://registry.npmjs.org/stylus 59ms (cache revalidated)
+69 silly packumentCache full:https://registry.npmjs.org/stylus set size:286766 disposed:false
+70 silly fetch manifest sugarss@*
+71 silly packumentCache full:https://registry.npmjs.org/sugarss cache-miss
+72 http fetch GET 200 https://registry.npmjs.org/sugarss 56ms (cache revalidated)
+73 silly packumentCache full:https://registry.npmjs.org/sugarss set size:44975 disposed:false
+74 silly fetch manifest terser@^5.4.0
+75 silly packumentCache full:https://registry.npmjs.org/terser cache-miss
+76 http fetch GET 200 https://registry.npmjs.org/terser 53ms (cache revalidated)
+77 silly packumentCache full:https://registry.npmjs.org/terser set size:786629 disposed:false
+78 silly placeDep ROOT @tailwindcss/forms@0.5.11 OK for:  want: ^0.5.2
+79 silly placeDep ROOT tailwindcss@3.4.19 OK for: @tailwindcss/forms@0.5.11 want: >=3.0.0 || >= 3.0.0-alpha.1 || >= 4.0.0-alpha.20 || >= 4.0.0-beta.1
+80 silly placeDep ROOT alpinejs@3.15.8 OK for:  want: ^3.4.2
+81 silly placeDep ROOT autoprefixer@10.4.27 OK for:  want: ^10.4.2
+82 silly placeDep ROOT postcss@8.5.6 OK for: autoprefixer@10.4.27 want: ^8.1.0
+83 silly placeDep ROOT axios@1.13.5 OK for:  want: ^1.6.4
+84 silly placeDep ROOT laravel-vite-plugin@1.3.0 OK for:  want: ^1.0
+85 silly placeDep ROOT vite@5.4.21 OK for: laravel-vite-plugin@1.3.0 want: ^5.0.0 || ^6.0.0
+86 silly fetch manifest mini-svg-data-uri@^1.2.3
+87 silly packumentCache full:https://registry.npmjs.org/mini-svg-data-uri cache-miss
+88 silly fetch manifest arg@^5.0.2
+89 silly packumentCache full:https://registry.npmjs.org/arg cache-miss
+90 silly fetch manifest dlv@^1.1.3
+91 silly packumentCache full:https://registry.npmjs.org/dlv cache-miss
+92 silly fetch manifest jiti@^1.21.7
+93 silly packumentCache full:https://registry.npmjs.org/jiti cache-miss
+94 silly fetch manifest is-glob@^4.0.3
+95 silly packumentCache full:https://registry.npmjs.org/is-glob cache-miss
+96 silly fetch manifest postcss@^8.4.47
+97 silly packumentCache full:https://registry.npmjs.org/postcss cache-hit
+98 silly fetch manifest resolve@^1.22.8
+99 silly packumentCache full:https://registry.npmjs.org/resolve cache-miss
+100 silly fetch manifest sucrase@^3.35.0
+101 silly packumentCache full:https://registry.npmjs.org/sucrase cache-miss
+102 silly fetch manifest chokidar@^3.6.0
+103 silly packumentCache full:https://registry.npmjs.org/chokidar cache-miss
+104 silly fetch manifest fast-glob@^3.3.2
+105 silly packumentCache full:https://registry.npmjs.org/fast-glob cache-miss
+106 silly fetch manifest lilconfig@^3.1.3
+107 silly packumentCache full:https://registry.npmjs.org/lilconfig cache-miss
+108 silly fetch manifest didyoumean@^1.2.2
+109 silly packumentCache full:https://registry.npmjs.org/didyoumean cache-miss
+110 silly fetch manifest micromatch@^4.0.8
+111 silly packumentCache full:https://registry.npmjs.org/micromatch cache-miss
+112 silly fetch manifest picocolors@^1.1.1
+113 silly packumentCache full:https://registry.npmjs.org/picocolors cache-miss
+114 silly fetch manifest postcss-js@^4.0.1
+115 silly packumentCache full:https://registry.npmjs.org/postcss-js cache-miss
+116 silly fetch manifest glob-parent@^6.0.2
+117 silly packumentCache full:https://registry.npmjs.org/glob-parent cache-miss
+118 http fetch GET 200 https://registry.npmjs.org/dlv 65ms (cache revalidated)
+119 silly packumentCache full:https://registry.npmjs.org/dlv set size:16709 disposed:false
+120 silly fetch manifest object-hash@^3.0.0
+121 silly packumentCache full:https://registry.npmjs.org/object-hash cache-miss
+122 http fetch GET 200 https://registry.npmjs.org/object-hash 68ms (cache revalidated)
+123 silly packumentCache full:https://registry.npmjs.org/object-hash set size:100564 disposed:false
+124 silly fetch manifest normalize-path@^3.0.0
+125 silly packumentCache full:https://registry.npmjs.org/normalize-path cache-miss
+126 http fetch GET 200 https://registry.npmjs.org/arg 167ms (cache revalidated)
+127 silly packumentCache full:https://registry.npmjs.org/arg set size:67036 disposed:false
+128 silly fetch manifest postcss-import@^15.1.0
+129 silly packumentCache full:https://registry.npmjs.org/postcss-import cache-miss
+130 http fetch GET 200 https://registry.npmjs.org/mini-svg-data-uri 168ms (cache revalidated)
+131 silly packumentCache full:https://registry.npmjs.org/mini-svg-data-uri set size:25574 disposed:false
+132 silly fetch manifest postcss-nested@^6.2.0
+133 silly packumentCache full:https://registry.npmjs.org/postcss-nested cache-miss
+134 http fetch GET 200 https://registry.npmjs.org/fast-glob 169ms (cache revalidated)
+135 silly packumentCache full:https://registry.npmjs.org/fast-glob set size:220556 disposed:false
+136 silly fetch manifest @alloc/quick-lru@^5.2.0
+137 silly packumentCache full:https://registry.npmjs.org/@alloc%2fquick-lru cache-miss
+138 http fetch GET 200 https://registry.npmjs.org/lilconfig 174ms (cache revalidated)
+139 silly packumentCache full:https://registry.npmjs.org/lilconfig set size:45636 disposed:false
+140 silly fetch manifest postcss-load-config@^4.0.2 || ^5.0 || ^6.0
+141 silly packumentCache full:https://registry.npmjs.org/postcss-load-config cache-miss
+142 http fetch GET 200 https://registry.npmjs.org/picocolors 176ms (cache revalidated)
+143 silly packumentCache full:https://registry.npmjs.org/picocolors set size:16648 disposed:false
+144 silly fetch manifest postcss-selector-parser@^6.1.2
+145 silly packumentCache full:https://registry.npmjs.org/postcss-selector-parser cache-miss
+146 http fetch GET 200 https://registry.npmjs.org/is-glob 181ms (cache revalidated)
+147 silly packumentCache full:https://registry.npmjs.org/is-glob set size:40530 disposed:false
+148 silly fetch manifest @vue/reactivity@~3.1.1
+149 silly packumentCache full:https://registry.npmjs.org/@vue%2freactivity cache-miss
+150 http fetch GET 200 https://registry.npmjs.org/chokidar 182ms (cache revalidated)
+151 silly packumentCache full:https://registry.npmjs.org/chokidar set size:255902 disposed:false
+152 silly fetch manifest browserslist@^4.28.1
+153 silly packumentCache full:https://registry.npmjs.org/browserslist cache-miss
+154 http fetch GET 200 https://registry.npmjs.org/resolve 187ms (cache revalidated)
+155 silly packumentCache full:https://registry.npmjs.org/resolve set size:238156 disposed:false
+156 silly fetch manifest caniuse-lite@^1.0.30001774
+157 silly packumentCache full:https://registry.npmjs.org/caniuse-lite cache-miss
+158 http fetch GET 200 https://registry.npmjs.org/micromatch 191ms (cache revalidated)
+159 silly packumentCache full:https://registry.npmjs.org/micromatch set size:240630 disposed:false
+160 silly fetch manifest fraction.js@^5.3.4
+161 silly packumentCache full:https://registry.npmjs.org/fraction.js cache-miss
+162 http fetch GET 200 https://registry.npmjs.org/glob-parent 198ms (cache revalidated)
+163 silly packumentCache full:https://registry.npmjs.org/glob-parent set size:42445 disposed:false
+164 silly fetch manifest postcss-value-parser@^4.2.0
+165 silly packumentCache full:https://registry.npmjs.org/postcss-value-parser cache-miss
+166 http fetch GET 200 https://registry.npmjs.org/normalize-path 70ms (cache revalidated)
+167 silly packumentCache full:https://registry.npmjs.org/normalize-path set size:28713 disposed:false
+168 silly fetch manifest nanoid@^3.3.11
+169 silly packumentCache full:https://registry.npmjs.org/nanoid cache-miss
+170 http fetch GET 200 https://registry.npmjs.org/sucrase 206ms (cache revalidated)
+171 silly packumentCache full:https://registry.npmjs.org/sucrase set size:449399 disposed:false
+172 silly fetch manifest source-map-js@^1.2.1
+173 silly packumentCache full:https://registry.npmjs.org/source-map-js cache-miss
+174 http fetch GET 200 https://registry.npmjs.org/postcss-js 224ms (cache revalidated)
+175 silly packumentCache full:https://registry.npmjs.org/postcss-js set size:51308 disposed:false
+176 silly fetch manifest form-data@^4.0.5
+177 silly packumentCache full:https://registry.npmjs.org/form-data cache-miss
+178 http fetch GET 200 https://registry.npmjs.org/didyoumean 227ms (cache revalidated)
+179 silly packumentCache full:https://registry.npmjs.org/didyoumean set size:11446 disposed:false
+180 silly fetch manifest proxy-from-env@^1.1.0
+181 silly packumentCache full:https://registry.npmjs.org/proxy-from-env cache-miss
+182 http fetch GET 200 https://registry.npmjs.org/jiti 230ms (cache revalidated)
+183 silly packumentCache full:https://registry.npmjs.org/jiti set size:382310 disposed:false
+184 silly fetch manifest follow-redirects@^1.15.11
+185 silly packumentCache full:https://registry.npmjs.org/follow-redirects cache-miss
+186 http fetch GET 200 https://registry.npmjs.org/postcss-import 71ms (cache revalidated)
+187 silly packumentCache full:https://registry.npmjs.org/postcss-import set size:120971 disposed:false
+188 silly fetch manifest picocolors@^1.0.0
+189 silly packumentCache full:https://registry.npmjs.org/picocolors cache-hit
+190 silly fetch manifest vite-plugin-full-reload@^1.1.0
+191 silly packumentCache full:https://registry.npmjs.org/vite-plugin-full-reload cache-miss
+192 http fetch GET 200 https://registry.npmjs.org/postcss-load-config 78ms (cache revalidated)
+193 silly packumentCache full:https://registry.npmjs.org/postcss-load-config set size:86425 disposed:false
+194 silly fetch manifest rollup@^4.20.0
+195 silly packumentCache full:https://registry.npmjs.org/rollup cache-miss
+196 http fetch GET 200 https://registry.npmjs.org/@alloc%2fquick-lru 85ms (cache revalidated)
+197 silly packumentCache full:https://registry.npmjs.org/@alloc%2fquick-lru set size:7269 disposed:false
+198 silly fetch manifest esbuild@^0.21.3
+199 silly packumentCache full:https://registry.npmjs.org/esbuild cache-miss
+200 http fetch GET 200 https://registry.npmjs.org/browserslist 91ms (cache revalidated)
+201 silly packumentCache full:https://registry.npmjs.org/browserslist set size:502989 disposed:false
+202 silly fetch manifest fsevents@~2.3.3
+203 silly packumentCache full:https://registry.npmjs.org/fsevents cache-miss
+204 http fetch GET 200 https://registry.npmjs.org/postcss-selector-parser 102ms (cache revalidated)
+205 silly packumentCache full:https://registry.npmjs.org/postcss-selector-parser set size:177140 disposed:false
+206 http fetch GET 200 https://registry.npmjs.org/nanoid 86ms (cache revalidated)
+207 silly packumentCache full:https://registry.npmjs.org/nanoid set size:298419 disposed:false
+208 http fetch GET 200 https://registry.npmjs.org/fraction.js 100ms (cache revalidated)
+209 silly packumentCache full:https://registry.npmjs.org/fraction.js set size:149386 disposed:false
+210 http fetch GET 200 https://registry.npmjs.org/proxy-from-env 68ms (cache revalidated)
+211 silly packumentCache full:https://registry.npmjs.org/proxy-from-env set size:18911 disposed:false
+212 http fetch GET 200 https://registry.npmjs.org/caniuse-lite 112ms (cache revalidated)
+213 silly packumentCache full:https://registry.npmjs.org/caniuse-lite set size:2258713 disposed:false
+214 http fetch GET 200 https://registry.npmjs.org/source-map-js 100ms (cache revalidated)
+215 silly packumentCache full:https://registry.npmjs.org/source-map-js set size:62640 disposed:false
+216 http fetch GET 200 https://registry.npmjs.org/vite-plugin-full-reload 72ms (cache revalidated)
+217 silly packumentCache full:https://registry.npmjs.org/vite-plugin-full-reload set size:55926 disposed:false
+218 http fetch GET 200 https://registry.npmjs.org/follow-redirects 80ms (cache revalidated)
+219 silly packumentCache full:https://registry.npmjs.org/follow-redirects set size:186700 disposed:false
+220 http fetch GET 200 https://registry.npmjs.org/form-data 87ms (cache revalidated)
+221 silly packumentCache full:https://registry.npmjs.org/form-data set size:153646 disposed:false
+222 http fetch GET 200 https://registry.npmjs.org/postcss-value-parser 114ms (cache revalidated)
+223 silly packumentCache full:https://registry.npmjs.org/postcss-value-parser set size:73484 disposed:false
+224 http fetch GET 200 https://registry.npmjs.org/@vue%2freactivity 135ms (cache revalidated)
+225 silly packumentCache full:https://registry.npmjs.org/@vue%2freactivity set size:785054 disposed:false
+226 http fetch GET 200 https://registry.npmjs.org/esbuild 68ms (cache revalidated)
+227 silly packumentCache full:https://registry.npmjs.org/esbuild set size:1242223 disposed:false
+228 http fetch GET 200 https://registry.npmjs.org/rollup 80ms (cache revalidated)
+229 silly packumentCache full:https://registry.npmjs.org/rollup set size:6122682 disposed:false
+230 http fetch GET 200 https://registry.npmjs.org/fsevents 83ms (cache revalidated)
+231 silly packumentCache full:https://registry.npmjs.org/fsevents set size:182472 disposed:false
+232 http fetch GET 200 https://registry.npmjs.org/postcss-nested 239ms (cache revalidated)
+233 silly packumentCache full:https://registry.npmjs.org/postcss-nested set size:79120 disposed:false
+234 silly placeDep ROOT mini-svg-data-uri@1.4.4 OK for: @tailwindcss/forms@0.5.11 want: ^1.2.3
+235 silly placeDep ROOT @vue/reactivity@3.1.5 OK for: alpinejs@3.15.8 want: ~3.1.1
+236 silly fetch manifest @vue/shared@3.1.5
+237 silly packumentCache full:https://registry.npmjs.org/@vue%2fshared cache-miss
+238 http fetch GET 200 https://registry.npmjs.org/@vue%2fshared 263ms (cache revalidated)
+239 silly packumentCache full:https://registry.npmjs.org/@vue%2fshared set size:679118 disposed:false
+240 silly placeDep ROOT @vue/shared@3.1.5 OK for: @vue/reactivity@3.1.5 want: 3.1.5
+241 silly placeDep ROOT browserslist@4.28.1 OK for: autoprefixer@10.4.27 want: ^4.28.1
+242 silly placeDep ROOT caniuse-lite@1.0.30001774 OK for: autoprefixer@10.4.27 want: ^1.0.30001774
+243 silly placeDep ROOT fraction.js@5.3.4 OK for: autoprefixer@10.4.27 want: ^5.3.4
+244 silly placeDep ROOT picocolors@1.1.1 OK for: autoprefixer@10.4.27 want: ^1.1.1
+245 silly placeDep ROOT postcss-value-parser@4.2.0 OK for: autoprefixer@10.4.27 want: ^4.2.0
+246 silly fetch manifest baseline-browser-mapping@^2.9.0
+247 silly packumentCache full:https://registry.npmjs.org/baseline-browser-mapping cache-miss
+248 silly fetch manifest caniuse-lite@^1.0.30001759
+249 silly packumentCache full:https://registry.npmjs.org/caniuse-lite cache-miss
+250 silly fetch manifest electron-to-chromium@^1.5.263
+251 silly packumentCache full:https://registry.npmjs.org/electron-to-chromium cache-miss
+252 silly fetch manifest node-releases@^2.0.27
+253 silly packumentCache full:https://registry.npmjs.org/node-releases cache-miss
+254 silly fetch manifest update-browserslist-db@^1.2.0
+255 silly packumentCache full:https://registry.npmjs.org/update-browserslist-db cache-miss
+256 http cache https://registry.npmjs.org/caniuse-lite 11ms (cache hit)
+257 silly packumentCache full:https://registry.npmjs.org/caniuse-lite set size:2258713 disposed:false
+258 http fetch GET 200 https://registry.npmjs.org/baseline-browser-mapping 62ms (cache revalidated)
+259 silly packumentCache full:https://registry.npmjs.org/baseline-browser-mapping set size:393828 disposed:false
+260 http fetch GET 200 https://registry.npmjs.org/node-releases 64ms (cache revalidated)
+261 silly packumentCache full:https://registry.npmjs.org/node-releases set size:269192 disposed:false
+262 http fetch GET 200 https://registry.npmjs.org/electron-to-chromium 70ms (cache revalidated)
+263 silly packumentCache full:https://registry.npmjs.org/electron-to-chromium set size:4719879 disposed:false
+264 http fetch GET 200 https://registry.npmjs.org/update-browserslist-db 87ms (cache revalidated)
+265 silly packumentCache full:https://registry.npmjs.org/update-browserslist-db set size:62000 disposed:false
+266 silly placeDep ROOT follow-redirects@1.15.11 OK for: axios@1.13.5 want: ^1.15.11
+267 silly placeDep ROOT form-data@4.0.5 OK for: axios@1.13.5 want: ^4.0.5
+268 silly placeDep ROOT proxy-from-env@1.1.0 OK for: axios@1.13.5 want: ^1.1.0
+269 silly fetch manifest asynckit@^0.4.0
+270 silly packumentCache full:https://registry.npmjs.org/asynckit cache-miss
+271 silly fetch manifest combined-stream@^1.0.8
+272 silly packumentCache full:https://registry.npmjs.org/combined-stream cache-miss
+273 silly fetch manifest es-set-tostringtag@^2.1.0
+274 silly packumentCache full:https://registry.npmjs.org/es-set-tostringtag cache-miss
+275 silly fetch manifest hasown@^2.0.2
+276 silly packumentCache full:https://registry.npmjs.org/hasown cache-miss
+277 silly fetch manifest mime-types@^2.1.12
+278 silly packumentCache full:https://registry.npmjs.org/mime-types cache-miss
+279 http fetch GET 200 https://registry.npmjs.org/es-set-tostringtag 63ms (cache revalidated)
+280 silly packumentCache full:https://registry.npmjs.org/es-set-tostringtag set size:22094 disposed:false
+281 http fetch GET 200 https://registry.npmjs.org/combined-stream 67ms (cache revalidated)
+282 silly packumentCache full:https://registry.npmjs.org/combined-stream set size:40337 disposed:false
+283 http fetch GET 200 https://registry.npmjs.org/mime-types 67ms (cache revalidated)
+284 silly packumentCache full:https://registry.npmjs.org/mime-types set size:139110 disposed:false
+285 http fetch GET 200 https://registry.npmjs.org/asynckit 69ms (cache revalidated)
+286 silly packumentCache full:https://registry.npmjs.org/asynckit set size:18932 disposed:false
+287 http fetch GET 200 https://registry.npmjs.org/hasown 76ms (cache revalidated)
+288 silly packumentCache full:https://registry.npmjs.org/hasown set size:12476 disposed:false
+289 silly fetch manifest browserslist@>= 4.21.0
+290 silly packumentCache full:https://registry.npmjs.org/browserslist cache-hit
+291 silly placeDep ROOT baseline-browser-mapping@2.10.0 OK for: browserslist@4.28.1 want: ^2.9.0
+292 silly placeDep ROOT electron-to-chromium@1.5.302 OK for: browserslist@4.28.1 want: ^1.5.263
+293 silly placeDep ROOT node-releases@2.0.27 OK for: browserslist@4.28.1 want: ^2.0.27
+294 silly placeDep ROOT update-browserslist-db@1.2.3 OK for: browserslist@4.28.1 want: ^1.2.0
+295 silly fetch manifest escalade@^3.2.0
+296 silly packumentCache full:https://registry.npmjs.org/escalade cache-miss
+297 http fetch GET 200 https://registry.npmjs.org/escalade 61ms (cache revalidated)
+298 silly packumentCache full:https://registry.npmjs.org/escalade set size:33724 disposed:false
+299 silly placeDep ROOT asynckit@0.4.0 OK for: form-data@4.0.5 want: ^0.4.0
+300 silly placeDep ROOT combined-stream@1.0.8 OK for: form-data@4.0.5 want: ^1.0.8
+301 silly placeDep ROOT es-set-tostringtag@2.1.0 OK for: form-data@4.0.5 want: ^2.1.0
+302 silly placeDep ROOT hasown@2.0.2 OK for: form-data@4.0.5 want: ^2.0.2
+303 silly placeDep ROOT mime-types@2.1.35 OK for: form-data@4.0.5 want: ^2.1.12
+304 silly fetch manifest delayed-stream@~1.0.0
+305 silly packumentCache full:https://registry.npmjs.org/delayed-stream cache-miss
+306 silly fetch manifest es-errors@^1.3.0
+307 silly packumentCache full:https://registry.npmjs.org/es-errors cache-miss
+308 silly fetch manifest get-intrinsic@^1.2.6
+309 silly packumentCache full:https://registry.npmjs.org/get-intrinsic cache-miss
+310 silly fetch manifest has-tostringtag@^1.0.2
+311 silly packumentCache full:https://registry.npmjs.org/has-tostringtag cache-miss
+312 silly fetch manifest function-bind@^1.1.2
+313 silly packumentCache full:https://registry.npmjs.org/function-bind cache-miss
+314 silly fetch manifest mime-db@1.52.0
+315 silly packumentCache full:https://registry.npmjs.org/mime-db cache-miss
+316 http fetch GET 200 https://registry.npmjs.org/get-intrinsic 60ms (cache revalidated)
+317 silly packumentCache full:https://registry.npmjs.org/get-intrinsic set size:60985 disposed:false
+318 http fetch GET 200 https://registry.npmjs.org/delayed-stream 62ms (cache revalidated)
+319 silly packumentCache full:https://registry.npmjs.org/delayed-stream set size:15820 disposed:false
+320 http fetch GET 200 https://registry.npmjs.org/has-tostringtag 63ms (cache revalidated)
+321 silly packumentCache full:https://registry.npmjs.org/has-tostringtag set size:13945 disposed:false
+322 http fetch GET 200 https://registry.npmjs.org/function-bind 64ms (cache revalidated)
+323 silly packumentCache full:https://registry.npmjs.org/function-bind set size:15733 disposed:false
+324 http fetch GET 200 https://registry.npmjs.org/mime-db 67ms (cache revalidated)
+325 silly packumentCache full:https://registry.npmjs.org/mime-db set size:164953 disposed:false
+326 http fetch GET 200 https://registry.npmjs.org/es-errors 138ms (cache revalidated)
+327 silly packumentCache full:https://registry.npmjs.org/es-errors set size:16918 disposed:false
+328 silly placeDep ROOT delayed-stream@1.0.0 OK for: combined-stream@1.0.8 want: ~1.0.0
+329 silly placeDep ROOT es-errors@1.3.0 OK for: es-set-tostringtag@2.1.0 want: ^1.3.0
+330 silly placeDep ROOT get-intrinsic@1.3.0 OK for: es-set-tostringtag@2.1.0 want: ^1.2.6
+331 silly placeDep ROOT has-tostringtag@1.0.2 OK for: es-set-tostringtag@2.1.0 want: ^1.0.2
+332 silly fetch manifest gopd@^1.2.0
+333 silly packumentCache full:https://registry.npmjs.org/gopd cache-miss
+334 silly fetch manifest get-proto@^1.0.1
+335 silly packumentCache full:https://registry.npmjs.org/get-proto cache-miss
+336 silly fetch manifest has-symbols@^1.1.0
+337 silly packumentCache full:https://registry.npmjs.org/has-symbols cache-miss
+338 silly fetch manifest es-object-atoms@^1.1.1
+339 silly packumentCache full:https://registry.npmjs.org/es-object-atoms cache-miss
+340 silly fetch manifest math-intrinsics@^1.1.0
+341 silly packumentCache full:https://registry.npmjs.org/math-intrinsics cache-miss
+342 silly fetch manifest es-define-property@^1.0.1
+343 silly packumentCache full:https://registry.npmjs.org/es-define-property cache-miss
+344 silly fetch manifest call-bind-apply-helpers@^1.0.2
+345 silly packumentCache full:https://registry.npmjs.org/call-bind-apply-helpers cache-miss
+346 silly fetch manifest has-symbols@^1.0.3
+347 silly packumentCache full:https://registry.npmjs.org/has-symbols cache-miss
+348 http fetch GET 200 https://registry.npmjs.org/gopd 60ms (cache revalidated)
+349 silly packumentCache full:https://registry.npmjs.org/gopd set size:11458 disposed:false
+350 http fetch GET 200 https://registry.npmjs.org/es-object-atoms 68ms (cache revalidated)
+351 silly packumentCache full:https://registry.npmjs.org/es-object-atoms set size:15304 disposed:false
+352 http fetch GET 200 https://registry.npmjs.org/es-define-property 71ms (cache revalidated)
+353 silly packumentCache full:https://registry.npmjs.org/es-define-property set size:8542 disposed:false
+354 http fetch GET 200 https://registry.npmjs.org/has-symbols 70ms (cache revalidated)
+355 silly packumentCache full:https://registry.npmjs.org/has-symbols set size:21550 disposed:false
+356 http fetch GET 200 https://registry.npmjs.org/has-symbols 72ms (cache revalidated)
+357 silly packumentCache full:https://registry.npmjs.org/has-symbols set size:21550 disposed:false
+358 silly packumentCache full:https://registry.npmjs.org/has-symbols dispose
+359 http fetch GET 200 https://registry.npmjs.org/math-intrinsics 77ms (cache revalidated)
+360 silly packumentCache full:https://registry.npmjs.org/math-intrinsics set size:9265 disposed:false
+361 http fetch GET 200 https://registry.npmjs.org/call-bind-apply-helpers 82ms (cache revalidated)
+362 silly packumentCache full:https://registry.npmjs.org/call-bind-apply-helpers set size:12744 disposed:false
+363 http fetch GET 200 https://registry.npmjs.org/get-proto 108ms (cache revalidated)
+364 silly packumentCache full:https://registry.npmjs.org/get-proto set size:8300 disposed:false
+365 silly placeDep ROOT call-bind-apply-helpers@1.0.2 OK for: get-intrinsic@1.3.0 want: ^1.0.2
+366 silly placeDep ROOT es-define-property@1.0.1 OK for: get-intrinsic@1.3.0 want: ^1.0.1
+367 silly placeDep ROOT es-object-atoms@1.1.1 OK for: get-intrinsic@1.3.0 want: ^1.1.1
+368 silly placeDep ROOT function-bind@1.1.2 OK for: get-intrinsic@1.3.0 want: ^1.1.2
+369 silly placeDep ROOT get-proto@1.0.1 OK for: get-intrinsic@1.3.0 want: ^1.0.1
+370 silly placeDep ROOT gopd@1.2.0 OK for: get-intrinsic@1.3.0 want: ^1.2.0
+371 silly placeDep ROOT has-symbols@1.1.0 OK for: get-intrinsic@1.3.0 want: ^1.1.0
+372 silly placeDep ROOT math-intrinsics@1.1.0 OK for: get-intrinsic@1.3.0 want: ^1.1.0
+373 silly fetch manifest dunder-proto@^1.0.1
+374 silly packumentCache full:https://registry.npmjs.org/dunder-proto cache-miss
+375 http fetch GET 200 https://registry.npmjs.org/dunder-proto 58ms (cache revalidated)
+376 silly packumentCache full:https://registry.npmjs.org/dunder-proto set size:8256 disposed:false
+377 silly placeDep ROOT dunder-proto@1.0.1 OK for: get-proto@1.0.1 want: ^1.0.1
+378 silly placeDep ROOT vite-plugin-full-reload@1.2.0 OK for: laravel-vite-plugin@1.3.0 want: ^1.1.0
+379 silly fetch manifest picomatch@^2.3.1
+380 silly packumentCache full:https://registry.npmjs.org/picomatch cache-miss
+381 http fetch GET 200 https://registry.npmjs.org/picomatch 68ms (cache revalidated)
+382 silly packumentCache full:https://registry.npmjs.org/picomatch set size:118818 disposed:false
+383 silly placeDep ROOT mime-db@1.52.0 OK for: mime-types@2.1.35 want: 1.52.0
+384 silly placeDep ROOT nanoid@3.3.11 OK for: postcss@8.5.6 want: ^3.3.11
+385 silly placeDep ROOT source-map-js@1.2.1 OK for: postcss@8.5.6 want: ^1.2.1
+386 silly fetch manifest tsx@^4.8.1
+387 silly packumentCache full:https://registry.npmjs.org/tsx cache-miss
+388 http fetch GET 200 https://registry.npmjs.org/tsx 96ms (cache revalidated)
+389 silly packumentCache full:https://registry.npmjs.org/tsx set size:289592 disposed:false
+390 silly fetch manifest yaml@^2.4.2
+391 silly packumentCache full:https://registry.npmjs.org/yaml cache-miss
+392 http fetch GET 200 https://registry.npmjs.org/yaml 64ms (cache revalidated)
+393 silly packumentCache full:https://registry.npmjs.org/yaml set size:361552 disposed:false
+394 silly placeDep ROOT @alloc/quick-lru@5.2.0 OK for: tailwindcss@3.4.19 want: ^5.2.0
+395 silly placeDep ROOT arg@5.0.2 OK for: tailwindcss@3.4.19 want: ^5.0.2
+396 silly placeDep ROOT chokidar@3.6.0 OK for: tailwindcss@3.4.19 want: ^3.6.0
+397 silly placeDep ROOT didyoumean@1.2.2 OK for: tailwindcss@3.4.19 want: ^1.2.2
+398 silly placeDep ROOT dlv@1.1.3 OK for: tailwindcss@3.4.19 want: ^1.1.3
+399 silly placeDep ROOT fast-glob@3.3.3 OK for: tailwindcss@3.4.19 want: ^3.3.2
+400 silly placeDep ROOT glob-parent@6.0.2 OK for: tailwindcss@3.4.19 want: ^6.0.2
+401 silly placeDep ROOT is-glob@4.0.3 OK for: tailwindcss@3.4.19 want: ^4.0.3
+402 silly placeDep ROOT jiti@1.21.7 OK for: tailwindcss@3.4.19 want: ^1.21.7
+403 silly placeDep ROOT lilconfig@3.1.3 OK for: tailwindcss@3.4.19 want: ^3.1.3
+404 silly placeDep ROOT micromatch@4.0.8 OK for: tailwindcss@3.4.19 want: ^4.0.8
+405 silly placeDep ROOT normalize-path@3.0.0 OK for: tailwindcss@3.4.19 want: ^3.0.0
+406 silly placeDep ROOT object-hash@3.0.0 OK for: tailwindcss@3.4.19 want: ^3.0.0
+407 silly placeDep ROOT postcss-import@15.1.0 OK for: tailwindcss@3.4.19 want: ^15.1.0
+408 silly placeDep ROOT postcss-js@4.1.0 OK for: tailwindcss@3.4.19 want: ^4.0.1
+409 silly placeDep ROOT postcss-load-config@6.0.1 OK for: tailwindcss@3.4.19 want: ^4.0.2 || ^5.0 || ^6.0
+410 silly placeDep ROOT postcss-nested@6.2.0 OK for: tailwindcss@3.4.19 want: ^6.2.0
+411 silly placeDep ROOT postcss-selector-parser@6.1.2 OK for: tailwindcss@3.4.19 want: ^6.1.2
+412 silly placeDep ROOT resolve@1.22.11 OK for: tailwindcss@3.4.19 want: ^1.22.8
+413 silly placeDep ROOT sucrase@3.35.1 OK for: tailwindcss@3.4.19 want: ^3.35.0
+414 silly fetch manifest braces@~3.0.2
+415 silly packumentCache full:https://registry.npmjs.org/braces cache-miss
+416 silly fetch manifest is-glob@~4.0.1
+417 silly packumentCache full:https://registry.npmjs.org/is-glob cache-hit
+418 silly fetch manifest anymatch@~3.1.2
+419 silly packumentCache full:https://registry.npmjs.org/anymatch cache-miss
+420 silly fetch manifest readdirp@~3.6.0
+421 silly packumentCache full:https://registry.npmjs.org/readdirp cache-miss
+422 silly fetch manifest glob-parent@~5.1.2
+423 silly packumentCache full:https://registry.npmjs.org/glob-parent cache-hit
+424 silly fetch manifest is-binary-path@~2.1.0
+425 silly packumentCache full:https://registry.npmjs.org/is-binary-path cache-miss
+426 silly fetch manifest normalize-path@~3.0.0
+427 silly packumentCache full:https://registry.npmjs.org/normalize-path cache-hit
+428 silly fetch manifest fsevents@~2.3.2
+429 silly packumentCache full:https://registry.npmjs.org/fsevents cache-hit
+430 silly fetch manifest @nodelib/fs.stat@^2.0.2
+431 silly packumentCache full:https://registry.npmjs.org/@nodelib%2ffs.stat cache-miss
+432 silly fetch manifest @nodelib/fs.walk@^1.2.3
+433 silly packumentCache full:https://registry.npmjs.org/@nodelib%2ffs.walk cache-miss
+434 silly fetch manifest glob-parent@^5.1.2
+435 silly packumentCache full:https://registry.npmjs.org/glob-parent cache-hit
+436 silly fetch manifest merge2@^1.3.0
+437 silly packumentCache full:https://registry.npmjs.org/merge2 cache-miss
+438 silly fetch manifest is-extglob@^2.1.1
+439 silly packumentCache full:https://registry.npmjs.org/is-extglob cache-miss
+440 silly fetch manifest braces@^3.0.3
+441 silly packumentCache full:https://registry.npmjs.org/braces cache-miss
+442 silly fetch manifest resolve@^1.1.7
+443 silly packumentCache full:https://registry.npmjs.org/resolve cache-hit
+444 silly fetch manifest read-cache@^1.0.0
+445 silly packumentCache full:https://registry.npmjs.org/read-cache cache-miss
+446 silly fetch manifest camelcase-css@^2.0.1
+447 silly packumentCache full:https://registry.npmjs.org/camelcase-css cache-miss
+448 silly fetch manifest postcss-selector-parser@^6.1.1
+449 silly packumentCache full:https://registry.npmjs.org/postcss-selector-parser cache-hit
+450 silly fetch manifest cssesc@^3.0.0
+451 silly packumentCache full:https://registry.npmjs.org/cssesc cache-miss
+452 silly fetch manifest util-deprecate@^1.0.2
+453 silly packumentCache full:https://registry.npmjs.org/util-deprecate cache-miss
+454 silly fetch manifest path-parse@^1.0.7
+455 silly packumentCache full:https://registry.npmjs.org/path-parse cache-miss
+456 silly fetch manifest is-core-module@^2.16.1
+457 silly packumentCache full:https://registry.npmjs.org/is-core-module cache-miss
+458 http fetch GET 200 https://registry.npmjs.org/anymatch 90ms (cache revalidated)
+459 silly packumentCache full:https://registry.npmjs.org/anymatch set size:42974 disposed:false
+460 silly fetch manifest supports-preserve-symlinks-flag@^1.0.0
+461 silly packumentCache full:https://registry.npmjs.org/supports-preserve-symlinks-flag cache-miss
+462 http fetch GET 200 https://registry.npmjs.org/is-extglob 91ms (cache revalidated)
+463 silly packumentCache full:https://registry.npmjs.org/is-extglob set size:11766 disposed:false
+464 silly fetch manifest @jridgewell/gen-mapping@^0.3.2
+465 silly packumentCache full:https://registry.npmjs.org/@jridgewell%2fgen-mapping cache-miss
+466 http fetch GET 200 https://registry.npmjs.org/is-binary-path 99ms (cache revalidated)
+467 silly packumentCache full:https://registry.npmjs.org/is-binary-path set size:13475 disposed:false
+468 silly fetch manifest commander@^4.0.0
+469 silly packumentCache full:https://registry.npmjs.org/commander cache-miss
+470 http fetch GET 200 https://registry.npmjs.org/braces 101ms (cache revalidated)
+471 silly packumentCache full:https://registry.npmjs.org/braces set size:114529 disposed:false
+472 silly fetch manifest lines-and-columns@^1.1.6
+473 silly packumentCache full:https://registry.npmjs.org/lines-and-columns cache-miss
+474 http fetch GET 200 https://registry.npmjs.org/is-core-module 96ms (cache revalidated)
+475 silly packumentCache full:https://registry.npmjs.org/is-core-module set size:71788 disposed:false
+476 silly fetch manifest mz@^2.7.0
+477 silly packumentCache full:https://registry.npmjs.org/mz cache-miss
+478 http fetch GET 200 https://registry.npmjs.org/util-deprecate 102ms (cache revalidated)
+479 silly packumentCache full:https://registry.npmjs.org/util-deprecate set size:6674 disposed:false
+480 silly fetch manifest pirates@^4.0.1
+481 silly packumentCache full:https://registry.npmjs.org/pirates cache-miss
+482 http fetch GET 200 https://registry.npmjs.org/cssesc 104ms (cache revalidated)
+483 silly packumentCache full:https://registry.npmjs.org/cssesc set size:18815 disposed:false
+484 silly fetch manifest tinyglobby@^0.2.11
+485 silly packumentCache full:https://registry.npmjs.org/tinyglobby cache-miss
+486 http fetch GET 200 https://registry.npmjs.org/readdirp 110ms (cache revalidated)
+487 silly packumentCache full:https://registry.npmjs.org/readdirp set size:107589 disposed:false
+488 silly fetch manifest ts-interface-checker@^0.1.9
+489 silly packumentCache full:https://registry.npmjs.org/ts-interface-checker cache-miss
+490 http fetch GET 200 https://registry.npmjs.org/read-cache 107ms (cache revalidated)
+491 silly packumentCache full:https://registry.npmjs.org/read-cache set size:3003 disposed:false
+492 http fetch GET 200 https://registry.npmjs.org/merge2 115ms (cache revalidated)
+493 silly packumentCache full:https://registry.npmjs.org/merge2 set size:46159 disposed:false
+494 http fetch GET 200 https://registry.npmjs.org/path-parse 112ms (cache revalidated)
+495 silly packumentCache full:https://registry.npmjs.org/path-parse set size:14523 disposed:false
+496 http fetch GET 200 https://registry.npmjs.org/camelcase-css 115ms (cache revalidated)
+497 silly packumentCache full:https://registry.npmjs.org/camelcase-css set size:9392 disposed:false
+498 http fetch GET 200 https://registry.npmjs.org/@nodelib%2ffs.walk 127ms (cache revalidated)
+499 silly packumentCache full:https://registry.npmjs.org/@nodelib%2ffs.walk set size:41589 disposed:false
+500 http fetch GET 200 https://registry.npmjs.org/braces 141ms (cache revalidated)
+501 silly packumentCache full:https://registry.npmjs.org/braces set size:114529 disposed:false
+502 silly packumentCache full:https://registry.npmjs.org/braces dispose
+503 http fetch GET 200 https://registry.npmjs.org/supports-preserve-symlinks-flag 58ms (cache revalidated)
+504 silly packumentCache full:https://registry.npmjs.org/supports-preserve-symlinks-flag set size:6802 disposed:false
+505 http fetch GET 200 https://registry.npmjs.org/@nodelib%2ffs.stat 164ms (cache revalidated)
+506 silly packumentCache full:https://registry.npmjs.org/@nodelib%2ffs.stat set size:36993 disposed:false
+507 http fetch GET 200 https://registry.npmjs.org/lines-and-columns 65ms (cache revalidated)
+508 silly packumentCache full:https://registry.npmjs.org/lines-and-columns set size:73796 disposed:false
+509 http fetch GET 200 https://registry.npmjs.org/mz 71ms (cache revalidated)
+510 silly packumentCache full:https://registry.npmjs.org/mz set size:42731 disposed:false
+511 http fetch GET 200 https://registry.npmjs.org/commander 76ms (cache revalidated)
+512 silly packumentCache full:https://registry.npmjs.org/commander set size:306325 disposed:false
+513 http fetch GET 200 https://registry.npmjs.org/@jridgewell%2fgen-mapping 88ms (cache revalidated)
+514 silly packumentCache full:https://registry.npmjs.org/@jridgewell%2fgen-mapping set size:80719 disposed:false
+515 http fetch GET 200 https://registry.npmjs.org/pirates 74ms (cache revalidated)
+516 silly packumentCache full:https://registry.npmjs.org/pirates set size:51327 disposed:false
+517 http fetch GET 200 https://registry.npmjs.org/tinyglobby 74ms (cache revalidated)
+518 silly packumentCache full:https://registry.npmjs.org/tinyglobby set size:49812 disposed:false
+519 http fetch GET 200 https://registry.npmjs.org/ts-interface-checker 89ms (cache revalidated)
+520 silly packumentCache full:https://registry.npmjs.org/ts-interface-checker set size:58946 disposed:false
+521 silly placeDep ROOT anymatch@3.1.3 OK for: chokidar@3.6.0 want: ~3.1.2
+522 silly placeDep ROOT braces@3.0.3 OK for: chokidar@3.6.0 want: ~3.0.2
+523 silly placeDep ROOT fsevents@2.3.3 OK for: chokidar@3.6.0 want: ~2.3.2
+524 silly placeDep node_modules/chokidar glob-parent@5.1.2 OK for: chokidar@3.6.0 want: ~5.1.2
+525 silly placeDep ROOT is-binary-path@2.1.0 OK for: chokidar@3.6.0 want: ~2.1.0
+526 silly placeDep ROOT readdirp@3.6.0 OK for: chokidar@3.6.0 want: ~3.6.0
+527 silly fetch manifest picomatch@^2.0.4
+528 silly packumentCache full:https://registry.npmjs.org/picomatch cache-hit
+529 silly fetch manifest fill-range@^7.1.1
+530 silly packumentCache full:https://registry.npmjs.org/fill-range cache-miss
+531 silly fetch manifest binary-extensions@^2.0.0
+532 silly packumentCache full:https://registry.npmjs.org/binary-extensions cache-miss
+533 silly fetch manifest picomatch@^2.2.1
+534 silly packumentCache full:https://registry.npmjs.org/picomatch cache-hit
+535 http fetch GET 200 https://registry.npmjs.org/fill-range 59ms (cache revalidated)
+536 silly packumentCache full:https://registry.npmjs.org/fill-range set size:90212 disposed:false
+537 http fetch GET 200 https://registry.npmjs.org/binary-extensions 62ms (cache revalidated)
+538 silly packumentCache full:https://registry.npmjs.org/binary-extensions set size:51551 disposed:false
+539 silly placeDep ROOT picomatch@2.3.1 OK for: anymatch@3.1.3 want: ^2.0.4
+540 silly placeDep ROOT fill-range@7.1.1 OK for: braces@3.0.3 want: ^7.1.1
+541 silly fetch manifest to-regex-range@^5.0.1
+542 silly packumentCache full:https://registry.npmjs.org/to-regex-range cache-miss
+543 http fetch GET 200 https://registry.npmjs.org/to-regex-range 65ms (cache revalidated)
+544 silly packumentCache full:https://registry.npmjs.org/to-regex-range set size:61569 disposed:false
+545 silly placeDep ROOT @nodelib/fs.stat@2.0.5 OK for: fast-glob@3.3.3 want: ^2.0.2
+546 silly placeDep ROOT @nodelib/fs.walk@1.2.8 OK for: fast-glob@3.3.3 want: ^1.2.3
+547 silly placeDep node_modules/fast-glob glob-parent@5.1.2 OK for: fast-glob@3.3.3 want: ^5.1.2
+548 silly placeDep ROOT merge2@1.4.1 OK for: fast-glob@3.3.3 want: ^1.3.0
+549 silly fetch manifest fastq@^1.6.0
+550 silly packumentCache full:https://registry.npmjs.org/fastq cache-miss
+551 silly fetch manifest @nodelib/fs.scandir@2.1.5
+552 silly packumentCache full:https://registry.npmjs.org/@nodelib%2ffs.scandir cache-miss
+553 http fetch GET 200 https://registry.npmjs.org/fastq 56ms (cache revalidated)
+554 silly packumentCache full:https://registry.npmjs.org/fastq set size:78301 disposed:false
+555 http fetch GET 200 https://registry.npmjs.org/@nodelib%2ffs.scandir 74ms (cache revalidated)
+556 silly packumentCache full:https://registry.npmjs.org/@nodelib%2ffs.scandir set size:49256 disposed:false
+557 silly placeDep ROOT @nodelib/fs.scandir@2.1.5 OK for: @nodelib/fs.walk@1.2.8 want: 2.1.5
+558 silly placeDep ROOT fastq@1.20.1 OK for: @nodelib/fs.walk@1.2.8 want: ^1.6.0
+559 silly fetch manifest run-parallel@^1.1.9
+560 silly packumentCache full:https://registry.npmjs.org/run-parallel cache-miss
+561 silly fetch manifest reusify@^1.0.4
+562 silly packumentCache full:https://registry.npmjs.org/reusify cache-miss
+563 http fetch GET 200 https://registry.npmjs.org/reusify 61ms (cache revalidated)
+564 silly packumentCache full:https://registry.npmjs.org/reusify set size:14249 disposed:false
+565 http fetch GET 200 https://registry.npmjs.org/run-parallel 63ms (cache revalidated)
+566 silly packumentCache full:https://registry.npmjs.org/run-parallel set size:35172 disposed:false
+567 silly placeDep ROOT run-parallel@1.2.0 OK for: @nodelib/fs.scandir@2.1.5 want: ^1.1.9
+568 silly fetch manifest queue-microtask@^1.2.2
+569 silly packumentCache full:https://registry.npmjs.org/queue-microtask cache-miss
+570 http fetch GET 200 https://registry.npmjs.org/queue-microtask 66ms (cache revalidated)
+571 silly packumentCache full:https://registry.npmjs.org/queue-microtask set size:36088 disposed:false
+572 silly placeDep ROOT reusify@1.1.0 OK for: fastq@1.20.1 want: ^1.0.4
+573 silly placeDep ROOT to-regex-range@5.0.1 OK for: fill-range@7.1.1 want: ^5.0.1
+574 silly fetch manifest is-number@^7.0.0
+575 silly packumentCache full:https://registry.npmjs.org/is-number cache-miss
+576 http fetch GET 200 https://registry.npmjs.org/is-number 126ms (cache revalidated)
+577 silly packumentCache full:https://registry.npmjs.org/is-number set size:36183 disposed:false
+578 silly placeDep ROOT binary-extensions@2.3.0 OK for: is-binary-path@2.1.0 want: ^2.0.0
+579 silly placeDep ROOT is-extglob@2.1.1 OK for: is-glob@4.0.3 want: ^2.1.1
+580 silly placeDep ROOT read-cache@1.0.0 OK for: postcss-import@15.1.0 want: ^1.0.0
+581 silly fetch manifest pify@^2.3.0
+582 silly packumentCache full:https://registry.npmjs.org/pify cache-miss
+583 http fetch GET 200 https://registry.npmjs.org/pify 57ms (cache revalidated)
+584 silly packumentCache full:https://registry.npmjs.org/pify set size:33583 disposed:false
+585 silly placeDep ROOT camelcase-css@2.0.1 OK for: postcss-js@4.1.0 want: ^2.0.1
+586 silly placeDep ROOT cssesc@3.0.0 OK for: postcss-selector-parser@6.1.2 want: ^3.0.0
+587 silly placeDep ROOT util-deprecate@1.0.2 OK for: postcss-selector-parser@6.1.2 want: ^1.0.2
+588 silly placeDep ROOT pify@2.3.0 OK for: read-cache@1.0.0 want: ^2.3.0
+589 silly placeDep ROOT is-core-module@2.16.1 OK for: resolve@1.22.11 want: ^2.16.1
+590 silly placeDep ROOT path-parse@1.0.7 OK for: resolve@1.22.11 want: ^1.0.7
+591 silly placeDep ROOT supports-preserve-symlinks-flag@1.0.0 OK for: resolve@1.22.11 want: ^1.0.0
+592 silly placeDep ROOT queue-microtask@1.2.3 OK for: run-parallel@1.2.0 want: ^1.2.2
+593 silly placeDep ROOT @jridgewell/gen-mapping@0.3.13 OK for: sucrase@3.35.1 want: ^0.3.2
+594 silly placeDep ROOT commander@4.1.1 OK for: sucrase@3.35.1 want: ^4.0.0
+595 silly placeDep ROOT lines-and-columns@1.2.4 OK for: sucrase@3.35.1 want: ^1.1.6
+596 silly placeDep ROOT mz@2.7.0 OK for: sucrase@3.35.1 want: ^2.7.0
+597 silly placeDep ROOT pirates@4.0.7 OK for: sucrase@3.35.1 want: ^4.0.1
+598 silly placeDep ROOT tinyglobby@0.2.15 OK for: sucrase@3.35.1 want: ^0.2.11
+599 silly placeDep ROOT ts-interface-checker@0.1.13 OK for: sucrase@3.35.1 want: ^0.1.9
+600 silly fetch manifest @jridgewell/sourcemap-codec@^1.5.0
+601 silly packumentCache full:https://registry.npmjs.org/@jridgewell%2fsourcemap-codec cache-miss
+602 silly fetch manifest @jridgewell/trace-mapping@^0.3.24
+603 silly packumentCache full:https://registry.npmjs.org/@jridgewell%2ftrace-mapping cache-miss
+604 silly fetch manifest any-promise@^1.0.0
+605 silly packumentCache full:https://registry.npmjs.org/any-promise cache-miss
+606 silly fetch manifest object-assign@^4.0.1
+607 silly packumentCache full:https://registry.npmjs.org/object-assign cache-miss
+608 silly fetch manifest thenify-all@^1.0.0
+609 silly packumentCache full:https://registry.npmjs.org/thenify-all cache-miss
+610 silly fetch manifest fdir@^6.5.0
+611 silly packumentCache full:https://registry.npmjs.org/fdir cache-miss
+612 silly fetch manifest picomatch@^4.0.3
+613 silly packumentCache full:https://registry.npmjs.org/picomatch cache-hit
+614 http fetch GET 200 https://registry.npmjs.org/thenify-all 66ms (cache revalidated)
+615 silly packumentCache full:https://registry.npmjs.org/thenify-all set size:18488 disposed:false
+616 http fetch GET 200 https://registry.npmjs.org/object-assign 67ms (cache revalidated)
+617 silly packumentCache full:https://registry.npmjs.org/object-assign set size:28988 disposed:false
+618 http fetch GET 200 https://registry.npmjs.org/fdir 67ms (cache revalidated)
+619 silly packumentCache full:https://registry.npmjs.org/fdir set size:136182 disposed:false
+620 http fetch GET 200 https://registry.npmjs.org/@jridgewell%2fsourcemap-codec 81ms (cache revalidated)
+621 silly packumentCache full:https://registry.npmjs.org/@jridgewell%2fsourcemap-codec set size:59275 disposed:false
+622 http fetch GET 200 https://registry.npmjs.org/any-promise 82ms (cache revalidated)
+623 silly packumentCache full:https://registry.npmjs.org/any-promise set size:20233 disposed:false
+624 http fetch GET 200 https://registry.npmjs.org/@jridgewell%2ftrace-mapping 83ms (cache revalidated)
+625 silly packumentCache full:https://registry.npmjs.org/@jridgewell%2ftrace-mapping set size:170909 disposed:false
+626 silly placeDep ROOT @jridgewell/sourcemap-codec@1.5.5 OK for: @jridgewell/gen-mapping@0.3.13 want: ^1.5.0
+627 silly placeDep ROOT @jridgewell/trace-mapping@0.3.31 OK for: @jridgewell/gen-mapping@0.3.13 want: ^0.3.24
+628 silly fetch manifest @jridgewell/resolve-uri@^3.1.0
+629 silly packumentCache full:https://registry.npmjs.org/@jridgewell%2fresolve-uri cache-miss
+630 http fetch GET 200 https://registry.npmjs.org/@jridgewell%2fresolve-uri 75ms (cache revalidated)
+631 silly packumentCache full:https://registry.npmjs.org/@jridgewell%2fresolve-uri set size:57361 disposed:false
+632 silly placeDep ROOT @jridgewell/resolve-uri@3.1.2 OK for: @jridgewell/trace-mapping@0.3.31 want: ^3.1.0
+633 silly placeDep ROOT any-promise@1.3.0 OK for: mz@2.7.0 want: ^1.0.0
+634 silly placeDep ROOT object-assign@4.1.1 OK for: mz@2.7.0 want: ^4.0.1
+635 silly placeDep ROOT thenify-all@1.6.0 OK for: mz@2.7.0 want: ^1.0.0
+636 silly fetch manifest thenify@>= 3.1.0 < 4
+637 silly packumentCache full:https://registry.npmjs.org/thenify cache-miss
+638 http fetch GET 200 https://registry.npmjs.org/thenify 61ms (cache revalidated)
+639 silly packumentCache full:https://registry.npmjs.org/thenify set size:21379 disposed:false
+640 silly placeDep ROOT thenify@3.3.1 OK for: thenify-all@1.6.0 want: >= 3.1.0 < 4
+641 silly placeDep node_modules/tinyglobby fdir@6.5.0 OK for: tinyglobby@0.2.15 want: ^6.5.0
+642 silly placeDep node_modules/tinyglobby picomatch@4.0.3 OK for: fdir@6.5.0 want: ^3 || ^4
+643 silly placeDep ROOT is-number@7.0.0 OK for: to-regex-range@5.0.1 want: ^7.0.0
+644 silly placeDep ROOT escalade@3.2.0 OK for: update-browserslist-db@1.2.3 want: ^3.2.0
+645 silly placeDep ROOT esbuild@0.21.5 OK for: vite@5.4.21 want: ^0.21.3
+646 silly placeDep ROOT rollup@4.59.0 OK for: vite@5.4.21 want: ^4.20.0
+647 silly fetch manifest @esbuild/aix-ppc64@0.21.5
+648 silly packumentCache full:https://registry.npmjs.org/@esbuild%2faix-ppc64 cache-miss
+649 silly fetch manifest @esbuild/linux-arm@0.21.5
+650 silly packumentCache full:https://registry.npmjs.org/@esbuild%2flinux-arm cache-miss
+651 silly fetch manifest @esbuild/linux-x64@0.21.5
+652 silly packumentCache full:https://registry.npmjs.org/@esbuild%2flinux-x64 cache-miss
+653 silly fetch manifest @esbuild/sunos-x64@0.21.5
+654 silly packumentCache full:https://registry.npmjs.org/@esbuild%2fsunos-x64 cache-miss
+655 silly fetch manifest @esbuild/win32-x64@0.21.5
+656 silly packumentCache full:https://registry.npmjs.org/@esbuild%2fwin32-x64 cache-miss
+657 silly fetch manifest @esbuild/darwin-x64@0.21.5
+658 silly packumentCache full:https://registry.npmjs.org/@esbuild%2fdarwin-x64 cache-miss
+659 silly fetch manifest @esbuild/linux-ia32@0.21.5
+660 silly packumentCache full:https://registry.npmjs.org/@esbuild%2flinux-ia32 cache-miss
+661 silly fetch manifest @esbuild/netbsd-x64@0.21.5
+662 silly packumentCache full:https://registry.npmjs.org/@esbuild%2fnetbsd-x64 cache-miss
+663 silly fetch manifest @esbuild/win32-ia32@0.21.5
+664 silly packumentCache full:https://registry.npmjs.org/@esbuild%2fwin32-ia32 cache-miss
+665 silly fetch manifest @esbuild/android-arm@0.21.5
+666 silly packumentCache full:https://registry.npmjs.org/@esbuild%2fandroid-arm cache-miss
+667 silly fetch manifest @esbuild/android-x64@0.21.5
+668 silly packumentCache full:https://registry.npmjs.org/@esbuild%2fandroid-x64 cache-miss
+669 silly fetch manifest @esbuild/freebsd-x64@0.21.5
+670 silly packumentCache full:https://registry.npmjs.org/@esbuild%2ffreebsd-x64 cache-miss
+671 silly fetch manifest @esbuild/linux-arm64@0.21.5
+672 silly packumentCache full:https://registry.npmjs.org/@esbuild%2flinux-arm64 cache-miss
+673 silly fetch manifest @esbuild/linux-ppc64@0.21.5
+674 silly packumentCache full:https://registry.npmjs.org/@esbuild%2flinux-ppc64 cache-miss
+675 silly fetch manifest @esbuild/linux-s390x@0.21.5
+676 silly packumentCache full:https://registry.npmjs.org/@esbuild%2flinux-s390x cache-miss
+677 http fetch GET 200 https://registry.npmjs.org/@esbuild%2fandroid-x64 79ms (cache revalidated)
+678 silly packumentCache full:https://registry.npmjs.org/@esbuild%2fandroid-x64 set size:187307 disposed:false
+679 silly fetch manifest @esbuild/openbsd-x64@0.21.5
+680 silly packumentCache full:https://registry.npmjs.org/@esbuild%2fopenbsd-x64 cache-miss
+681 http fetch GET 200 https://registry.npmjs.org/@esbuild%2flinux-ppc64 81ms (cache revalidated)
+682 silly packumentCache full:https://registry.npmjs.org/@esbuild%2flinux-ppc64 set size:190895 disposed:false
+683 silly fetch manifest @esbuild/win32-arm64@0.21.5
+684 silly packumentCache full:https://registry.npmjs.org/@esbuild%2fwin32-arm64 cache-miss
+685 http fetch GET 200 https://registry.npmjs.org/@esbuild%2flinux-ia32 85ms (cache revalidated)
+686 silly packumentCache full:https://registry.npmjs.org/@esbuild%2flinux-ia32 set size:187877 disposed:false
+687 silly fetch manifest @esbuild/darwin-arm64@0.21.5
+688 silly packumentCache full:https://registry.npmjs.org/@esbuild%2fdarwin-arm64 cache-miss
+689 http fetch GET 200 https://registry.npmjs.org/@esbuild%2flinux-arm 89ms (cache revalidated)
+690 silly packumentCache full:https://registry.npmjs.org/@esbuild%2flinux-arm set size:186917 disposed:false
+691 silly fetch manifest @esbuild/android-arm64@0.21.5
+692 silly packumentCache full:https://registry.npmjs.org/@esbuild%2fandroid-arm64 cache-miss
+693 http fetch GET 200 https://registry.npmjs.org/@esbuild%2faix-ppc64 91ms (cache revalidated)
+694 silly packumentCache full:https://registry.npmjs.org/@esbuild%2faix-ppc64 set size:56029 disposed:false
+695 silly fetch manifest @esbuild/freebsd-arm64@0.21.5
+696 silly packumentCache full:https://registry.npmjs.org/@esbuild%2ffreebsd-arm64 cache-miss
+697 http fetch GET 200 https://registry.npmjs.org/@esbuild%2flinux-s390x 92ms (cache revalidated)
+698 silly packumentCache full:https://registry.npmjs.org/@esbuild%2flinux-s390x set size:190391 disposed:false
+699 silly fetch manifest @esbuild/linux-loong64@0.21.5
+700 silly packumentCache full:https://registry.npmjs.org/@esbuild%2flinux-loong64 cache-miss
+701 http fetch GET 200 https://registry.npmjs.org/@esbuild%2fandroid-arm 96ms (cache revalidated)
+702 silly packumentCache full:https://registry.npmjs.org/@esbuild%2fandroid-arm set size:213504 disposed:false
+703 silly fetch manifest @esbuild/linux-riscv64@0.21.5
+704 silly packumentCache full:https://registry.npmjs.org/@esbuild%2flinux-riscv64 cache-miss
+705 http fetch GET 200 https://registry.npmjs.org/@esbuild%2fwin32-ia32 98ms (cache revalidated)
+706 silly packumentCache full:https://registry.npmjs.org/@esbuild%2fwin32-ia32 set size:188094 disposed:false
+707 silly fetch manifest @esbuild/linux-mips64el@0.21.5
+708 silly packumentCache full:https://registry.npmjs.org/@esbuild%2flinux-mips64el cache-miss
+709 http fetch GET 200 https://registry.npmjs.org/@esbuild%2ffreebsd-x64 105ms (cache revalidated)
+710 silly packumentCache full:https://registry.npmjs.org/@esbuild%2ffreebsd-x64 set size:188756 disposed:false
+711 silly fetch manifest @types/estree@1.0.8
+712 silly packumentCache full:https://registry.npmjs.org/@types%2festree cache-miss
+713 http fetch GET 200 https://registry.npmjs.org/@esbuild%2fsunos-x64 108ms (cache revalidated)
+714 silly packumentCache full:https://registry.npmjs.org/@esbuild%2fsunos-x64 set size:187474 disposed:false
+715 silly fetch manifest @rollup/rollup-darwin-arm64@4.59.0
+716 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-darwin-arm64 cache-miss
+717 http fetch GET 200 https://registry.npmjs.org/@esbuild%2flinux-arm64 108ms (cache revalidated)
+718 silly packumentCache full:https://registry.npmjs.org/@esbuild%2flinux-arm64 set size:188948 disposed:false
+719 silly fetch manifest @rollup/rollup-android-arm64@4.59.0
+720 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-android-arm64 cache-miss
+721 http fetch GET 200 https://registry.npmjs.org/@esbuild%2fnetbsd-x64 110ms (cache revalidated)
+722 silly packumentCache full:https://registry.npmjs.org/@esbuild%2fnetbsd-x64 set size:185730 disposed:false
+723 silly fetch manifest @rollup/rollup-win32-arm64-msvc@4.59.0
+724 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-win32-arm64-msvc cache-miss
+725 http fetch GET 200 https://registry.npmjs.org/@esbuild%2fwin32-x64 113ms (cache revalidated)
+726 silly packumentCache full:https://registry.npmjs.org/@esbuild%2fwin32-x64 set size:187476 disposed:false
+727 silly fetch manifest @rollup/rollup-freebsd-arm64@4.59.0
+728 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-freebsd-arm64 cache-miss
+729 http fetch GET 200 https://registry.npmjs.org/@esbuild%2fdarwin-x64 120ms (cache revalidated)
+730 silly packumentCache full:https://registry.npmjs.org/@esbuild%2fdarwin-x64 set size:187924 disposed:false
+731 silly fetch manifest @rollup/rollup-linux-arm64-gnu@4.59.0
+732 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-linux-arm64-gnu cache-miss
+733 http fetch GET 200 https://registry.npmjs.org/@esbuild%2flinux-x64 127ms (cache revalidated)
+734 silly packumentCache full:https://registry.npmjs.org/@esbuild%2flinux-x64 set size:187244 disposed:false
+735 silly fetch manifest @rollup/rollup-linux-arm64-musl@4.59.0
+736 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-linux-arm64-musl cache-miss
+737 http fetch GET 200 https://registry.npmjs.org/@esbuild%2fopenbsd-x64 83ms (cache revalidated)
+738 silly packumentCache full:https://registry.npmjs.org/@esbuild%2fopenbsd-x64 set size:188762 disposed:false
+739 silly fetch manifest @rollup/rollup-android-arm-eabi@4.59.0
+740 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-android-arm-eabi cache-miss
+741 http fetch GET 200 https://registry.npmjs.org/@esbuild%2fandroid-arm64 80ms (cache revalidated)
+742 silly packumentCache full:https://registry.npmjs.org/@esbuild%2fandroid-arm64 set size:192279 disposed:false
+743 silly fetch manifest @rollup/rollup-linux-arm-gnueabihf@4.59.0
+744 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-linux-arm-gnueabihf cache-miss
+745 http fetch GET 200 https://registry.npmjs.org/@esbuild%2fdarwin-arm64 85ms (cache revalidated)
+746 silly packumentCache full:https://registry.npmjs.org/@esbuild%2fdarwin-arm64 set size:189596 disposed:false
+747 silly fetch manifest @rollup/rollup-linux-arm-musleabihf@4.59.0
+748 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-linux-arm-musleabihf cache-miss
+749 http fetch GET 200 https://registry.npmjs.org/@esbuild%2ffreebsd-arm64 91ms (cache revalidated)
+750 silly packumentCache full:https://registry.npmjs.org/@esbuild%2ffreebsd-arm64 set size:190447 disposed:false
+751 silly fetch manifest @rollup/rollup-win32-ia32-msvc@4.59.0
+752 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-win32-ia32-msvc cache-miss
+753 http fetch GET 200 https://registry.npmjs.org/@esbuild%2fwin32-arm64 98ms (cache revalidated)
+754 silly packumentCache full:https://registry.npmjs.org/@esbuild%2fwin32-arm64 set size:189169 disposed:false
+755 silly fetch manifest @rollup/rollup-linux-loong64-gnu@4.59.0
+756 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-linux-loong64-gnu cache-miss
+757 http fetch GET 200 https://registry.npmjs.org/@types%2festree 84ms (cache revalidated)
+758 silly packumentCache full:https://registry.npmjs.org/@types%2festree set size:74091 disposed:false
+759 silly fetch manifest @rollup/rollup-linux-loong64-musl@4.59.0
+760 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-linux-loong64-musl cache-miss
+761 http fetch GET 200 https://registry.npmjs.org/@esbuild%2flinux-riscv64 94ms (cache revalidated)
+762 silly packumentCache full:https://registry.npmjs.org/@esbuild%2flinux-riscv64 set size:190569 disposed:false
+763 silly fetch manifest @rollup/rollup-linux-riscv64-gnu@4.59.0
+764 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-linux-riscv64-gnu cache-miss
+765 http fetch GET 200 https://registry.npmjs.org/@esbuild%2flinux-loong64 100ms (cache revalidated)
+766 silly packumentCache full:https://registry.npmjs.org/@esbuild%2flinux-loong64 set size:243782 disposed:false
+767 silly fetch manifest @rollup/rollup-linux-riscv64-musl@4.59.0
+768 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-linux-riscv64-musl cache-miss
+769 http fetch GET 200 https://registry.npmjs.org/@rollup%2frollup-freebsd-arm64 86ms (cache revalidated)
+770 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-freebsd-arm64 set size:176248 disposed:false
+771 silly fetch manifest @rollup/rollup-linux-ppc64-gnu@4.59.0
+772 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-linux-ppc64-gnu cache-miss
+773 http fetch GET 200 https://registry.npmjs.org/@esbuild%2flinux-mips64el 105ms (cache revalidated)
+774 silly packumentCache full:https://registry.npmjs.org/@esbuild%2flinux-mips64el set size:192558 disposed:false
+775 silly fetch manifest @rollup/rollup-linux-ppc64-musl@4.59.0
+776 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-linux-ppc64-musl cache-miss
+777 http fetch GET 200 https://registry.npmjs.org/@rollup%2frollup-darwin-arm64 98ms (cache revalidated)
+778 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-darwin-arm64 set size:326593 disposed:false
+779 silly fetch manifest @rollup/rollup-linux-s390x-gnu@4.59.0
+780 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-linux-s390x-gnu cache-miss
+781 http fetch GET 200 https://registry.npmjs.org/@rollup%2frollup-win32-arm64-msvc 101ms (cache revalidated)
+782 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-win32-arm64-msvc set size:331325 disposed:false
+783 silly fetch manifest @rollup/rollup-darwin-x64@4.59.0
+784 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-darwin-x64 cache-miss
+785 http fetch GET 200 https://registry.npmjs.org/@rollup%2frollup-android-arm64 106ms (cache revalidated)
+786 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-android-arm64 set size:328041 disposed:false
+787 silly fetch manifest @rollup/rollup-win32-x64-gnu@4.59.0
+788 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-win32-x64-gnu cache-miss
+789 http fetch GET 200 https://registry.npmjs.org/@rollup%2frollup-linux-arm64-gnu 98ms (cache revalidated)
+790 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-linux-arm64-gnu set size:333515 disposed:false
+791 silly fetch manifest @rollup/rollup-win32-x64-msvc@4.59.0
+792 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-win32-x64-msvc cache-miss
+793 http fetch GET 200 https://registry.npmjs.org/@rollup%2frollup-linux-arm64-musl 102ms (cache revalidated)
+794 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-linux-arm64-musl set size:288863 disposed:false
+795 silly fetch manifest @rollup/rollup-freebsd-x64@4.59.0
+796 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-freebsd-x64 cache-miss
+797 http fetch GET 200 https://registry.npmjs.org/@rollup%2frollup-android-arm-eabi 76ms (cache revalidated)
+798 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-android-arm-eabi set size:331331 disposed:false
+799 silly fetch manifest @rollup/rollup-linux-x64-gnu@4.59.0
+800 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-linux-x64-gnu cache-miss
+801 http fetch GET 200 https://registry.npmjs.org/@rollup%2frollup-linux-arm-musleabihf 76ms (cache revalidated)
+802 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-linux-arm-musleabihf set size:230992 disposed:false
+803 silly fetch manifest @rollup/rollup-linux-x64-musl@4.59.0
+804 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-linux-x64-musl cache-miss
+805 http fetch GET 200 https://registry.npmjs.org/@rollup%2frollup-linux-arm-gnueabihf 80ms (cache revalidated)
+806 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-linux-arm-gnueabihf set size:336850 disposed:false
+807 silly fetch manifest @rollup/rollup-openbsd-x64@4.59.0
+808 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-openbsd-x64 cache-miss
+809 http fetch GET 200 https://registry.npmjs.org/@rollup%2frollup-win32-ia32-msvc 74ms (cache revalidated)
+810 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-win32-ia32-msvc set size:329889 disposed:false
+811 silly fetch manifest @rollup/rollup-openharmony-arm64@4.59.0
+812 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-openharmony-arm64 cache-miss
+813 http fetch GET 200 https://registry.npmjs.org/@rollup%2frollup-linux-loong64-gnu 80ms (cache revalidated)
+814 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-linux-loong64-gnu set size:57876 disposed:false
+815 http fetch GET 200 https://registry.npmjs.org/@rollup%2frollup-linux-loong64-musl 81ms (cache revalidated)
+816 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-linux-loong64-musl set size:19845 disposed:false
+817 http fetch GET 200 https://registry.npmjs.org/@rollup%2frollup-linux-riscv64-gnu 81ms (cache revalidated)
+818 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-linux-riscv64-gnu set size:259562 disposed:false
+819 http fetch GET 200 https://registry.npmjs.org/@rollup%2frollup-linux-riscv64-musl 80ms (cache revalidated)
+820 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-linux-riscv64-musl set size:105510 disposed:false
+821 http fetch GET 200 https://registry.npmjs.org/@rollup%2frollup-linux-ppc64-gnu 95ms (cache revalidated)
+822 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-linux-ppc64-gnu set size:78190 disposed:false
+823 http fetch GET 200 https://registry.npmjs.org/@rollup%2frollup-freebsd-x64 69ms (cache revalidated)
+824 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-freebsd-x64 set size:174438 disposed:false
+825 http fetch GET 200 https://registry.npmjs.org/@rollup%2frollup-linux-ppc64-musl 98ms (cache revalidated)
+826 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-linux-ppc64-musl set size:19680 disposed:false
+827 http fetch GET 200 https://registry.npmjs.org/@rollup%2frollup-win32-x64-msvc 94ms (cache revalidated)
+828 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-win32-x64-msvc set size:326588 disposed:false
+829 http fetch GET 200 https://registry.npmjs.org/@rollup%2frollup-darwin-x64 105ms (cache revalidated)
+830 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-darwin-x64 set size:321884 disposed:false
+831 http fetch GET 200 https://registry.npmjs.org/@rollup%2frollup-linux-x64-gnu 79ms (cache revalidated)
+832 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-linux-x64-gnu set size:328744 disposed:false
+833 http fetch GET 200 https://registry.npmjs.org/@rollup%2frollup-win32-x64-gnu 107ms (cache revalidated)
+834 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-win32-x64-gnu set size:49709 disposed:false
+835 http fetch GET 200 https://registry.npmjs.org/@rollup%2frollup-linux-s390x-gnu 119ms (cache revalidated)
+836 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-linux-s390x-gnu set size:233358 disposed:false
+837 http fetch GET 200 https://registry.npmjs.org/@rollup%2frollup-linux-x64-musl 81ms (cache revalidated)
+838 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-linux-x64-musl set size:328061 disposed:false
+839 http fetch GET 200 https://registry.npmjs.org/@rollup%2frollup-openharmony-arm64 75ms (cache revalidated)
+840 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-openharmony-arm64 set size:58833 disposed:false
+841 http fetch GET 200 https://registry.npmjs.org/@rollup%2frollup-openbsd-x64 93ms (cache revalidated)
+842 silly packumentCache full:https://registry.npmjs.org/@rollup%2frollup-openbsd-x64 set size:19171 disposed:false
+843 silly placeDep ROOT @esbuild/aix-ppc64@0.21.5 OK for: esbuild@0.21.5 want: 0.21.5
+844 silly placeDep ROOT @esbuild/android-arm@0.21.5 OK for: esbuild@0.21.5 want: 0.21.5
+845 silly placeDep ROOT @esbuild/android-arm64@0.21.5 OK for: esbuild@0.21.5 want: 0.21.5
+846 silly placeDep ROOT @esbuild/android-x64@0.21.5 OK for: esbuild@0.21.5 want: 0.21.5
+847 silly placeDep ROOT @esbuild/darwin-arm64@0.21.5 OK for: esbuild@0.21.5 want: 0.21.5
+848 silly placeDep ROOT @esbuild/darwin-x64@0.21.5 OK for: esbuild@0.21.5 want: 0.21.5
+849 silly placeDep ROOT @esbuild/freebsd-arm64@0.21.5 OK for: esbuild@0.21.5 want: 0.21.5
+850 silly placeDep ROOT @esbuild/freebsd-x64@0.21.5 OK for: esbuild@0.21.5 want: 0.21.5
+851 silly placeDep ROOT @esbuild/linux-arm@0.21.5 OK for: esbuild@0.21.5 want: 0.21.5
+852 silly placeDep ROOT @esbuild/linux-arm64@0.21.5 OK for: esbuild@0.21.5 want: 0.21.5
+853 silly placeDep ROOT @esbuild/linux-ia32@0.21.5 OK for: esbuild@0.21.5 want: 0.21.5
+854 silly placeDep ROOT @esbuild/linux-loong64@0.21.5 OK for: esbuild@0.21.5 want: 0.21.5
+855 silly placeDep ROOT @esbuild/linux-mips64el@0.21.5 OK for: esbuild@0.21.5 want: 0.21.5
+856 silly placeDep ROOT @esbuild/linux-ppc64@0.21.5 OK for: esbuild@0.21.5 want: 0.21.5
+857 silly placeDep ROOT @esbuild/linux-riscv64@0.21.5 OK for: esbuild@0.21.5 want: 0.21.5
+858 silly placeDep ROOT @esbuild/linux-s390x@0.21.5 OK for: esbuild@0.21.5 want: 0.21.5
+859 silly placeDep ROOT @esbuild/linux-x64@0.21.5 OK for: esbuild@0.21.5 want: 0.21.5
+860 silly placeDep ROOT @esbuild/netbsd-x64@0.21.5 OK for: esbuild@0.21.5 want: 0.21.5
+861 silly placeDep ROOT @esbuild/openbsd-x64@0.21.5 OK for: esbuild@0.21.5 want: 0.21.5
+862 silly placeDep ROOT @esbuild/sunos-x64@0.21.5 OK for: esbuild@0.21.5 want: 0.21.5
+863 silly placeDep ROOT @esbuild/win32-arm64@0.21.5 OK for: esbuild@0.21.5 want: 0.21.5
+864 silly placeDep ROOT @esbuild/win32-ia32@0.21.5 OK for: esbuild@0.21.5 want: 0.21.5
+865 silly placeDep ROOT @esbuild/win32-x64@0.21.5 OK for: esbuild@0.21.5 want: 0.21.5
+866 silly placeDep ROOT @rollup/rollup-android-arm-eabi@4.59.0 OK for: rollup@4.59.0 want: 4.59.0
+867 silly placeDep ROOT @rollup/rollup-android-arm64@4.59.0 OK for: rollup@4.59.0 want: 4.59.0
+868 silly placeDep ROOT @rollup/rollup-darwin-arm64@4.59.0 OK for: rollup@4.59.0 want: 4.59.0
+869 silly placeDep ROOT @rollup/rollup-darwin-x64@4.59.0 OK for: rollup@4.59.0 want: 4.59.0
+870 silly placeDep ROOT @rollup/rollup-freebsd-arm64@4.59.0 OK for: rollup@4.59.0 want: 4.59.0
+871 silly placeDep ROOT @rollup/rollup-freebsd-x64@4.59.0 OK for: rollup@4.59.0 want: 4.59.0
+872 silly placeDep ROOT @rollup/rollup-linux-arm-gnueabihf@4.59.0 OK for: rollup@4.59.0 want: 4.59.0
+873 silly placeDep ROOT @rollup/rollup-linux-arm-musleabihf@4.59.0 OK for: rollup@4.59.0 want: 4.59.0
+874 silly placeDep ROOT @rollup/rollup-linux-arm64-gnu@4.59.0 OK for: rollup@4.59.0 want: 4.59.0
+875 silly placeDep ROOT @rollup/rollup-linux-arm64-musl@4.59.0 OK for: rollup@4.59.0 want: 4.59.0
+876 silly placeDep ROOT @rollup/rollup-linux-loong64-gnu@4.59.0 OK for: rollup@4.59.0 want: 4.59.0
+877 silly placeDep ROOT @rollup/rollup-linux-loong64-musl@4.59.0 OK for: rollup@4.59.0 want: 4.59.0
+878 silly placeDep ROOT @rollup/rollup-linux-ppc64-gnu@4.59.0 OK for: rollup@4.59.0 want: 4.59.0
+879 silly placeDep ROOT @rollup/rollup-linux-ppc64-musl@4.59.0 OK for: rollup@4.59.0 want: 4.59.0
+880 silly placeDep ROOT @rollup/rollup-linux-riscv64-gnu@4.59.0 OK for: rollup@4.59.0 want: 4.59.0
+881 silly placeDep ROOT @rollup/rollup-linux-riscv64-musl@4.59.0 OK for: rollup@4.59.0 want: 4.59.0
+882 silly placeDep ROOT @rollup/rollup-linux-s390x-gnu@4.59.0 OK for: rollup@4.59.0 want: 4.59.0
+883 silly placeDep ROOT @rollup/rollup-linux-x64-gnu@4.59.0 OK for: rollup@4.59.0 want: 4.59.0
+884 silly placeDep ROOT @rollup/rollup-linux-x64-musl@4.59.0 OK for: rollup@4.59.0 want: 4.59.0
+885 silly placeDep ROOT @rollup/rollup-openbsd-x64@4.59.0 OK for: rollup@4.59.0 want: 4.59.0
+886 silly placeDep ROOT @rollup/rollup-openharmony-arm64@4.59.0 OK for: rollup@4.59.0 want: 4.59.0
+887 silly placeDep ROOT @rollup/rollup-win32-arm64-msvc@4.59.0 OK for: rollup@4.59.0 want: 4.59.0
+888 silly placeDep ROOT @rollup/rollup-win32-ia32-msvc@4.59.0 OK for: rollup@4.59.0 want: 4.59.0
+889 silly placeDep ROOT @rollup/rollup-win32-x64-gnu@4.59.0 OK for: rollup@4.59.0 want: 4.59.0
+890 silly placeDep ROOT @rollup/rollup-win32-x64-msvc@4.59.0 OK for: rollup@4.59.0 want: 4.59.0
+891 silly placeDep ROOT @types/estree@1.0.8 OK for: rollup@4.59.0 want: 1.0.8
+892 silly reify moves {}
+893 silly audit bulk request {
+893 silly audit   '@tailwindcss/forms': [ '0.5.11' ],
+893 silly audit   tailwindcss: [ '3.4.19' ],
+893 silly audit   alpinejs: [ '3.15.8' ],
+893 silly audit   autoprefixer: [ '10.4.27' ],
+893 silly audit   postcss: [ '8.5.6' ],
+893 silly audit   axios: [ '1.13.5' ],
+893 silly audit   'laravel-vite-plugin': [ '1.3.0' ],
+893 silly audit   vite: [ '5.4.21' ],
+893 silly audit   'mini-svg-data-uri': [ '1.4.4' ],
+893 silly audit   '@vue/reactivity': [ '3.1.5' ],
+893 silly audit   '@vue/shared': [ '3.1.5' ],
+893 silly audit   browserslist: [ '4.28.1' ],
+893 silly audit   'caniuse-lite': [ '1.0.30001774' ],
+893 silly audit   'fraction.js': [ '5.3.4' ],
+893 silly audit   picocolors: [ '1.1.1' ],
+893 silly audit   'postcss-value-parser': [ '4.2.0' ],
+893 silly audit   'follow-redirects': [ '1.15.11' ],
+893 silly audit   'form-data': [ '4.0.5' ],
+893 silly audit   'proxy-from-env': [ '1.1.0' ],
+893 silly audit   'baseline-browser-mapping': [ '2.10.0' ],
+893 silly audit   'electron-to-chromium': [ '1.5.302' ],
+893 silly audit   'node-releases': [ '2.0.27' ],
+893 silly audit   'update-browserslist-db': [ '1.2.3' ],
+893 silly audit   asynckit: [ '0.4.0' ],
+893 silly audit   'combined-stream': [ '1.0.8' ],
+893 silly audit   'es-set-tostringtag': [ '2.1.0' ],
+893 silly audit   hasown: [ '2.0.2' ],
+893 silly audit   'mime-types': [ '2.1.35' ],
+893 silly audit   'delayed-stream': [ '1.0.0' ],
+893 silly audit   'es-errors': [ '1.3.0' ],
+893 silly audit   'get-intrinsic': [ '1.3.0' ],
+893 silly audit   'has-tostringtag': [ '1.0.2' ],
+893 silly audit   'call-bind-apply-helpers': [ '1.0.2' ],
+893 silly audit   'es-define-property': [ '1.0.1' ],
+893 silly audit   'es-object-atoms': [ '1.1.1' ],
+893 silly audit   'function-bind': [ '1.1.2' ],
+893 silly audit   'get-proto': [ '1.0.1' ],
+893 silly audit   gopd: [ '1.2.0' ],
+893 silly audit   'has-symbols': [ '1.1.0' ],
+893 silly audit   'math-intrinsics': [ '1.1.0' ],
+893 silly audit   'dunder-proto': [ '1.0.1' ],
+893 silly audit   'vite-plugin-full-reload': [ '1.2.0' ],
+893 silly audit   'mime-db': [ '1.52.0' ],
+893 silly audit   nanoid: [ '3.3.11' ],
+893 silly audit   'source-map-js': [ '1.2.1' ],
+893 silly audit   '@alloc/quick-lru': [ '5.2.0' ],
+893 silly audit   arg: [ '5.0.2' ],
+893 silly audit   chokidar: [ '3.6.0' ],
+893 silly audit   didyoumean: [ '1.2.2' ],
+893 silly audit   dlv: [ '1.1.3' ],
+893 silly audit   'fast-glob': [ '3.3.3' ],
+893 silly audit   'glob-parent': [ '6.0.2', '5.1.2' ],
+893 silly audit   'is-glob': [ '4.0.3' ],
+893 silly audit   jiti: [ '1.21.7' ],
+893 silly audit   lilconfig: [ '3.1.3' ],
+893 silly audit   micromatch: [ '4.0.8' ],
+893 silly audit   'normalize-path': [ '3.0.0' ],
+893 silly audit   'object-hash': [ '3.0.0' ],
+893 silly audit   'postcss-import': [ '15.1.0' ],
+893 silly audit   'postcss-js': [ '4.1.0' ],
+893 silly audit   'postcss-load-config': [ '6.0.1' ],
+893 silly audit   'postcss-nested': [ '6.2.0' ],
+893 silly audit   'postcss-selector-parser': [ '6.1.2' ],
+893 silly audit   resolve: [ '1.22.11' ],
+893 silly audit   sucrase: [ '3.35.1' ],
+893 silly audit   anymatch: [ '3.1.3' ],
+893 silly audit   braces: [ '3.0.3' ],
+893 silly audit   fsevents: [ '2.3.3' ],
+893 silly audit   'is-binary-path': [ '2.1.0' ],
+893 silly audit   readdirp: [ '3.6.0' ],
+893 silly audit   picomatch: [ '2.3.1', '4.0.3' ],
+893 silly audit   'fill-range': [ '7.1.1' ],
+893 silly audit   '@nodelib/fs.stat': [ '2.0.5' ],
+893 silly audit   '@nodelib/fs.walk': [ '1.2.8' ],
+893 silly audit   merge2: [ '1.4.1' ],
+893 silly audit   '@nodelib/fs.scandir': [ '2.1.5' ],
+893 silly audit   fastq: [ '1.20.1' ],
+893 silly audit   'run-parallel': [ '1.2.0' ],
+893 silly audit   reusify: [ '1.1.0' ],
+893 silly audit   'to-regex-range': [ '5.0.1' ],
+893 silly audit   'binary-extensions': [ '2.3.0' ],
+893 silly audit   'is-extglob': [ '2.1.1' ],
+893 silly audit   'read-cache': [ '1.0.0' ],
+893 silly audit   'camelcase-css': [ '2.0.1' ],
+893 silly audit   cssesc: [ '3.0.0' ],
+893 silly audit   'util-deprecate': [ '1.0.2' ],
+893 silly audit   pify: [ '2.3.0' ],
+893 silly audit   'is-core-module': [ '2.16.1' ],
+893 silly audit   'path-parse': [ '1.0.7' ],
+893 silly audit   'supports-preserve-symlinks-flag': [ '1.0.0' ],
+893 silly audit   'queue-microtask': [ '1.2.3' ],
+893 silly audit   '@jridgewell/gen-mapping': [ '0.3.13' ],
+893 silly audit   commander: [ '4.1.1' ],
+893 silly audit   'lines-and-columns': [ '1.2.4' ],
+893 silly audit   mz: [ '2.7.0' ],
+893 silly audit   pirates: [ '4.0.7' ],
+893 silly audit   tinyglobby: [ '0.2.15' ],
+893 silly audit   'ts-interface-checker': [ '0.1.13' ],
+893 silly audit   '@jridgewell/sourcemap-codec': [ '1.5.5' ],
+893 silly audit   '@jridgewell/trace-mapping': [ '0.3.31' ],
+893 silly audit   '@jridgewell/resolve-uri': [ '3.1.2' ],
+893 silly audit   'any-promise': [ '1.3.0' ],
+893 silly audit   'object-assign': [ '4.1.1' ],
+893 silly audit   'thenify-all': [ '1.6.0' ],
+893 silly audit   thenify: [ '3.3.1' ],
+893 silly audit   fdir: [ '6.5.0' ],
+893 silly audit   'is-number': [ '7.0.0' ],
+893 silly audit   escalade: [ '3.2.0' ],
+893 silly audit   esbuild: [ '0.21.5' ],
+893 silly audit   rollup: [ '4.59.0' ],
+893 silly audit   '@esbuild/aix-ppc64': [ '0.21.5' ],
+893 silly audit   '@esbuild/android-arm': [ '0.21.5' ],
+893 silly audit   '@esbuild/android-arm64': [ '0.21.5' ],
+893 silly audit   '@esbuild/android-x64': [ '0.21.5' ],
+893 silly audit   '@esbuild/darwin-arm64': [ '0.21.5' ],
+893 silly audit   '@esbuild/darwin-x64': [ '0.21.5' ],
+893 silly audit   '@esbuild/freebsd-arm64': [ '0.21.5' ],
+893 silly audit   '@esbuild/freebsd-x64': [ '0.21.5' ],
+893 silly audit   '@esbuild/linux-arm': [ '0.21.5' ],
+893 silly audit   '@esbuild/linux-arm64': [ '0.21.5' ],
+893 silly audit   '@esbuild/linux-ia32': [ '0.21.5' ],
+893 silly audit   '@esbuild/linux-loong64': [ '0.21.5' ],
+893 silly audit   '@esbuild/linux-mips64el': [ '0.21.5' ],
+893 silly audit   '@esbuild/linux-ppc64': [ '0.21.5' ],
+893 silly audit   '@esbuild/linux-riscv64': [ '0.21.5' ],
+893 silly audit   '@esbuild/linux-s390x': [ '0.21.5' ],
+893 silly audit   '@esbuild/linux-x64': [ '0.21.5' ],
+893 silly audit   '@esbuild/netbsd-x64': [ '0.21.5' ],
+893 silly audit   '@esbuild/openbsd-x64': [ '0.21.5' ],
+893 silly audit   '@esbuild/sunos-x64': [ '0.21.5' ],
+893 silly audit   '@esbuild/win32-arm64': [ '0.21.5' ],
+893 silly audit   '@esbuild/win32-ia32': [ '0.21.5' ],
+893 silly audit   '@esbuild/win32-x64': [ '0.21.5' ],
+893 silly audit   '@rollup/rollup-android-arm-eabi': [ '4.59.0' ],
+893 silly audit   '@rollup/rollup-android-arm64': [ '4.59.0' ],
+893 silly audit   '@rollup/rollup-darwin-arm64': [ '4.59.0' ],
+893 silly audit   '@rollup/rollup-darwin-x64': [ '4.59.0' ],
+893 silly audit   '@rollup/rollup-freebsd-arm64': [ '4.59.0' ],
+893 silly audit   '@rollup/rollup-freebsd-x64': [ '4.59.0' ],
+893 silly audit   '@rollup/rollup-linux-arm-gnueabihf': [ '4.59.0' ],
+893 silly audit   '@rollup/rollup-linux-arm-musleabihf': [ '4.59.0' ],
+893 silly audit   '@rollup/rollup-linux-arm64-gnu': [ '4.59.0' ],
+893 silly audit   '@rollup/rollup-linux-arm64-musl': [ '4.59.0' ],
+893 silly audit   '@rollup/rollup-linux-loong64-gnu': [ '4.59.0' ],
+893 silly audit   '@rollup/rollup-linux-loong64-musl': [ '4.59.0' ],
+893 silly audit   '@rollup/rollup-linux-ppc64-gnu': [ '4.59.0' ],
+893 silly audit   '@rollup/rollup-linux-ppc64-musl': [ '4.59.0' ],
+893 silly audit   '@rollup/rollup-linux-riscv64-gnu': [ '4.59.0' ],
+893 silly audit   '@rollup/rollup-linux-riscv64-musl': [ '4.59.0' ],
+893 silly audit   '@rollup/rollup-linux-s390x-gnu': [ '4.59.0' ],
+893 silly audit   '@rollup/rollup-linux-x64-gnu': [ '4.59.0' ],
+893 silly audit   '@rollup/rollup-linux-x64-musl': [ '4.59.0' ],
+893 silly audit   '@rollup/rollup-openbsd-x64': [ '4.59.0' ],
+893 silly audit   '@rollup/rollup-openharmony-arm64': [ '4.59.0' ],
+893 silly audit   '@rollup/rollup-win32-arm64-msvc': [ '4.59.0' ],
+893 silly audit   '@rollup/rollup-win32-ia32-msvc': [ '4.59.0' ],
+893 silly audit   '@rollup/rollup-win32-x64-gnu': [ '4.59.0' ],
+893 silly audit   '@rollup/rollup-win32-x64-msvc': [ '4.59.0' ],
+893 silly audit   '@types/estree': [ '1.0.8' ]
+893 silly audit }
+894 http cache @types/estree@https://registry.npmjs.org/@types/estree/-/estree-1.0.8.tgz 0ms (cache hit)
+895 http cache esbuild@https://registry.npmjs.org/esbuild/-/esbuild-0.21.5.tgz 0ms (cache hit)
+896 http cache @rollup/rollup-win32-x64-gnu@https://registry.npmjs.org/@rollup/rollup-win32-x64-gnu/-/rollup-win32-x64-gnu-4.59.0.tgz 0ms (cache hit)
+897 http cache @rollup/rollup-win32-x64-msvc@https://registry.npmjs.org/@rollup/rollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.59.0.tgz 0ms (cache hit)
+898 http cache @esbuild/win32-x64@https://registry.npmjs.org/@esbuild/win32-x64/-/win32-x64-0.21.5.tgz 0ms (cache hit)
+899 http cache escalade@https://registry.npmjs.org/escalade/-/escalade-3.2.0.tgz 0ms (cache hit)
+900 http cache is-number@https://registry.npmjs.org/is-number/-/is-number-7.0.0.tgz 0ms (cache hit)
+901 http cache rollup@https://registry.npmjs.org/rollup/-/rollup-4.59.0.tgz 0ms (cache hit)
+902 http cache thenify@https://registry.npmjs.org/thenify/-/thenify-3.3.1.tgz 0ms (cache hit)
+903 http cache thenify-all@https://registry.npmjs.org/thenify-all/-/thenify-all-1.6.0.tgz 0ms (cache hit)
+904 http cache @jridgewell/resolve-uri@https://registry.npmjs.org/@jridgewell/resolve-uri/-/resolve-uri-3.1.2.tgz 0ms (cache hit)
+905 http cache @jridgewell/sourcemap-codec@https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.5.5.tgz 0ms (cache hit)
+906 http cache any-promise@https://registry.npmjs.org/any-promise/-/any-promise-1.3.0.tgz 0ms (cache hit)
+907 http cache object-assign@https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz 0ms (cache hit)
+908 http cache @jridgewell/trace-mapping@https://registry.npmjs.org/@jridgewell/trace-mapping/-/trace-mapping-0.3.31.tgz 0ms (cache hit)
+909 http cache tinyglobby@https://registry.npmjs.org/tinyglobby/-/tinyglobby-0.2.15.tgz 0ms (cache hit)
+910 http cache pirates@https://registry.npmjs.org/pirates/-/pirates-4.0.7.tgz 0ms (cache hit)
+911 http cache ts-interface-checker@https://registry.npmjs.org/ts-interface-checker/-/ts-interface-checker-0.1.13.tgz 0ms (cache hit)
+912 http cache mz@https://registry.npmjs.org/mz/-/mz-2.7.0.tgz 0ms (cache hit)
+913 http cache @jridgewell/gen-mapping@https://registry.npmjs.org/@jridgewell/gen-mapping/-/gen-mapping-0.3.13.tgz 0ms (cache hit)
+914 http cache lines-and-columns@https://registry.npmjs.org/lines-and-columns/-/lines-and-columns-1.2.4.tgz 0ms (cache hit)
+915 http cache queue-microtask@https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz 0ms (cache hit)
+916 http cache commander@https://registry.npmjs.org/commander/-/commander-4.1.1.tgz 0ms (cache hit)
+917 http cache is-core-module@https://registry.npmjs.org/is-core-module/-/is-core-module-2.16.1.tgz 0ms (cache hit)
+918 http cache supports-preserve-symlinks-flag@https://registry.npmjs.org/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz 0ms (cache hit)
+919 http cache cssesc@https://registry.npmjs.org/cssesc/-/cssesc-3.0.0.tgz 0ms (cache hit)
+920 http cache path-parse@https://registry.npmjs.org/path-parse/-/path-parse-1.0.7.tgz 0ms (cache hit)
+921 http cache pify@https://registry.npmjs.org/pify/-/pify-2.3.0.tgz 0ms (cache hit)
+922 http cache camelcase-css@https://registry.npmjs.org/camelcase-css/-/camelcase-css-2.0.1.tgz 0ms (cache hit)
+923 http cache to-regex-range@https://registry.npmjs.org/to-regex-range/-/to-regex-range-5.0.1.tgz 0ms (cache hit)
+924 http cache read-cache@https://registry.npmjs.org/read-cache/-/read-cache-1.0.0.tgz 0ms (cache hit)
+925 http cache is-extglob@https://registry.npmjs.org/is-extglob/-/is-extglob-2.1.1.tgz 0ms (cache hit)
+926 http cache util-deprecate@https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz 0ms (cache hit)
+927 http cache binary-extensions@https://registry.npmjs.org/binary-extensions/-/binary-extensions-2.3.0.tgz 0ms (cache hit)
+928 http cache run-parallel@https://registry.npmjs.org/run-parallel/-/run-parallel-1.2.0.tgz 0ms (cache hit)
+929 http cache fastq@https://registry.npmjs.org/fastq/-/fastq-1.20.1.tgz 0ms (cache hit)
+930 http cache reusify@https://registry.npmjs.org/reusify/-/reusify-1.1.0.tgz 0ms (cache hit)
+931 http cache @nodelib/fs.walk@https://registry.npmjs.org/@nodelib/fs.walk/-/fs.walk-1.2.8.tgz 0ms (cache hit)
+932 http cache picomatch@https://registry.npmjs.org/picomatch/-/picomatch-2.3.1.tgz 0ms (cache hit)
+933 http cache fill-range@https://registry.npmjs.org/fill-range/-/fill-range-7.1.1.tgz 0ms (cache hit)
+934 http cache @nodelib/fs.stat@https://registry.npmjs.org/@nodelib/fs.stat/-/fs.stat-2.0.5.tgz 0ms (cache hit)
+935 http cache merge2@https://registry.npmjs.org/merge2/-/merge2-1.4.1.tgz 0ms (cache hit)
+936 http cache readdirp@https://registry.npmjs.org/readdirp/-/readdirp-3.6.0.tgz 0ms (cache hit)
+937 http cache @nodelib/fs.scandir@https://registry.npmjs.org/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz 0ms (cache hit)
+938 http cache is-binary-path@https://registry.npmjs.org/is-binary-path/-/is-binary-path-2.1.0.tgz 0ms (cache hit)
+939 http cache braces@https://registry.npmjs.org/braces/-/braces-3.0.3.tgz 0ms (cache hit)
+940 http cache anymatch@https://registry.npmjs.org/anymatch/-/anymatch-3.1.3.tgz 0ms (cache hit)
+941 http cache postcss-selector-parser@https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-6.1.2.tgz 0ms (cache hit)
+942 http cache sucrase@https://registry.npmjs.org/sucrase/-/sucrase-3.35.1.tgz 0ms (cache hit)
+943 http cache resolve@https://registry.npmjs.org/resolve/-/resolve-1.22.11.tgz 0ms (cache hit)
+944 http cache postcss-load-config@https://registry.npmjs.org/postcss-load-config/-/postcss-load-config-6.0.1.tgz 0ms (cache hit)
+945 http cache postcss-js@https://registry.npmjs.org/postcss-js/-/postcss-js-4.1.0.tgz 0ms (cache hit)
+946 http cache postcss-import@https://registry.npmjs.org/postcss-import/-/postcss-import-15.1.0.tgz 0ms (cache hit)
+947 http cache postcss-nested@https://registry.npmjs.org/postcss-nested/-/postcss-nested-6.2.0.tgz 0ms (cache hit)
+948 http cache micromatch@https://registry.npmjs.org/micromatch/-/micromatch-4.0.8.tgz 0ms (cache hit)
+949 http cache normalize-path@https://registry.npmjs.org/normalize-path/-/normalize-path-3.0.0.tgz 0ms (cache hit)
+950 http cache lilconfig@https://registry.npmjs.org/lilconfig/-/lilconfig-3.1.3.tgz 0ms (cache hit)
+951 http cache jiti@https://registry.npmjs.org/jiti/-/jiti-1.21.7.tgz 0ms (cache hit)
+952 http cache glob-parent@https://registry.npmjs.org/glob-parent/-/glob-parent-6.0.2.tgz 0ms (cache hit)
+953 http cache is-glob@https://registry.npmjs.org/is-glob/-/is-glob-4.0.3.tgz 0ms (cache hit)
+954 http cache dlv@https://registry.npmjs.org/dlv/-/dlv-1.1.3.tgz 0ms (cache hit)
+955 http cache didyoumean@https://registry.npmjs.org/didyoumean/-/didyoumean-1.2.2.tgz 0ms (cache hit)
+956 http cache fast-glob@https://registry.npmjs.org/fast-glob/-/fast-glob-3.3.3.tgz 0ms (cache hit)
+957 http cache arg@https://registry.npmjs.org/arg/-/arg-5.0.2.tgz 0ms (cache hit)
+958 http cache chokidar@https://registry.npmjs.org/chokidar/-/chokidar-3.6.0.tgz 0ms (cache hit)
+959 http cache object-hash@https://registry.npmjs.org/object-hash/-/object-hash-3.0.0.tgz 0ms (cache hit)
+960 http cache @alloc/quick-lru@https://registry.npmjs.org/@alloc/quick-lru/-/quick-lru-5.2.0.tgz 0ms (cache hit)
+961 http cache nanoid@https://registry.npmjs.org/nanoid/-/nanoid-3.3.11.tgz 0ms (cache hit)
+962 http cache vite-plugin-full-reload@https://registry.npmjs.org/vite-plugin-full-reload/-/vite-plugin-full-reload-1.2.0.tgz 0ms (cache hit)
+963 http cache mime-db@https://registry.npmjs.org/mime-db/-/mime-db-1.52.0.tgz 0ms (cache hit)
+964 http cache dunder-proto@https://registry.npmjs.org/dunder-proto/-/dunder-proto-1.0.1.tgz 0ms (cache hit)
+965 http cache source-map-js@https://registry.npmjs.org/source-map-js/-/source-map-js-1.2.1.tgz 0ms (cache hit)
+966 http cache math-intrinsics@https://registry.npmjs.org/math-intrinsics/-/math-intrinsics-1.1.0.tgz 0ms (cache hit)
+967 http cache gopd@https://registry.npmjs.org/gopd/-/gopd-1.2.0.tgz 0ms (cache hit)
+968 http cache function-bind@https://registry.npmjs.org/function-bind/-/function-bind-1.1.2.tgz 0ms (cache hit)
+969 http cache get-proto@https://registry.npmjs.org/get-proto/-/get-proto-1.0.1.tgz 0ms (cache hit)
+970 http cache has-symbols@https://registry.npmjs.org/has-symbols/-/has-symbols-1.1.0.tgz 0ms (cache hit)
+971 http cache es-define-property@https://registry.npmjs.org/es-define-property/-/es-define-property-1.0.1.tgz 0ms (cache hit)
+972 http cache es-object-atoms@https://registry.npmjs.org/es-object-atoms/-/es-object-atoms-1.1.1.tgz 0ms (cache hit)
+973 http cache call-bind-apply-helpers@https://registry.npmjs.org/call-bind-apply-helpers/-/call-bind-apply-helpers-1.0.2.tgz 0ms (cache hit)
+974 http cache es-errors@https://registry.npmjs.org/es-errors/-/es-errors-1.3.0.tgz 0ms (cache hit)
+975 http cache has-tostringtag@https://registry.npmjs.org/has-tostringtag/-/has-tostringtag-1.0.2.tgz 0ms (cache hit)
+976 http cache delayed-stream@https://registry.npmjs.org/delayed-stream/-/delayed-stream-1.0.0.tgz 0ms (cache hit)
+977 http cache get-intrinsic@https://registry.npmjs.org/get-intrinsic/-/get-intrinsic-1.3.0.tgz 0ms (cache hit)
+978 http cache hasown@https://registry.npmjs.org/hasown/-/hasown-2.0.2.tgz 0ms (cache hit)
+979 http cache es-set-tostringtag@https://registry.npmjs.org/es-set-tostringtag/-/es-set-tostringtag-2.1.0.tgz 0ms (cache hit)
+980 http cache asynckit@https://registry.npmjs.org/asynckit/-/asynckit-0.4.0.tgz 0ms (cache hit)
+981 http cache node-releases@https://registry.npmjs.org/node-releases/-/node-releases-2.0.27.tgz 0ms (cache hit)
+982 http cache mime-types@https://registry.npmjs.org/mime-types/-/mime-types-2.1.35.tgz 0ms (cache hit)
+983 http cache update-browserslist-db@https://registry.npmjs.org/update-browserslist-db/-/update-browserslist-db-1.2.3.tgz 0ms (cache hit)
+984 http cache baseline-browser-mapping@https://registry.npmjs.org/baseline-browser-mapping/-/baseline-browser-mapping-2.10.0.tgz 0ms (cache hit)
+985 http cache combined-stream@https://registry.npmjs.org/combined-stream/-/combined-stream-1.0.8.tgz 0ms (cache hit)
+986 http cache proxy-from-env@https://registry.npmjs.org/proxy-from-env/-/proxy-from-env-1.1.0.tgz 0ms (cache hit)
+987 http cache form-data@https://registry.npmjs.org/form-data/-/form-data-4.0.5.tgz 0ms (cache hit)
+988 http cache electron-to-chromium@https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.5.302.tgz 0ms (cache hit)
+989 http cache postcss-value-parser@https://registry.npmjs.org/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz 0ms (cache hit)
+990 http cache follow-redirects@https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.11.tgz 0ms (cache hit)
+991 http cache picocolors@https://registry.npmjs.org/picocolors/-/picocolors-1.1.1.tgz 0ms (cache hit)
+992 http cache browserslist@https://registry.npmjs.org/browserslist/-/browserslist-4.28.1.tgz 0ms (cache hit)
+993 http cache caniuse-lite@https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001774.tgz 0ms (cache hit)
+994 http cache fraction.js@https://registry.npmjs.org/fraction.js/-/fraction.js-5.3.4.tgz 0ms (cache hit)
+995 http cache @vue/shared@https://registry.npmjs.org/@vue/shared/-/shared-3.1.5.tgz 0ms (cache hit)
+996 http cache @vue/reactivity@https://registry.npmjs.org/@vue/reactivity/-/reactivity-3.1.5.tgz 0ms (cache hit)
+997 http cache vite@https://registry.npmjs.org/vite/-/vite-5.4.21.tgz 0ms (cache hit)
+998 http cache laravel-vite-plugin@https://registry.npmjs.org/laravel-vite-plugin/-/laravel-vite-plugin-1.3.0.tgz 0ms (cache hit)
+999 http cache axios@https://registry.npmjs.org/axios/-/axios-1.13.5.tgz 0ms (cache hit)
+1000 http cache mini-svg-data-uri@https://registry.npmjs.org/mini-svg-data-uri/-/mini-svg-data-uri-1.4.4.tgz 0ms (cache hit)
+1001 http cache postcss@https://registry.npmjs.org/postcss/-/postcss-8.5.6.tgz 0ms (cache hit)
+1002 http cache alpinejs@https://registry.npmjs.org/alpinejs/-/alpinejs-3.15.8.tgz 0ms (cache hit)
+1003 http cache autoprefixer@https://registry.npmjs.org/autoprefixer/-/autoprefixer-10.4.27.tgz 0ms (cache hit)
+1004 http cache tailwindcss@https://registry.npmjs.org/tailwindcss/-/tailwindcss-3.4.19.tgz 0ms (cache hit)
+1005 http cache @tailwindcss/forms@https://registry.npmjs.org/@tailwindcss/forms/-/forms-0.5.11.tgz 0ms (cache hit)
+1006 http cache picomatch@https://registry.npmjs.org/picomatch/-/picomatch-4.0.3.tgz 0ms (cache hit)
+1007 http cache glob-parent@https://registry.npmjs.org/glob-parent/-/glob-parent-5.1.2.tgz 0ms (cache hit)
+1008 http cache fdir@https://registry.npmjs.org/fdir/-/fdir-6.5.0.tgz 0ms (cache hit)
+1009 http cache glob-parent@https://registry.npmjs.org/glob-parent/-/glob-parent-5.1.2.tgz 0ms (cache hit)
+1010 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 237ms
+1011 silly audit report {
+1011 silly audit report   esbuild: [
+1011 silly audit report     {
+1011 silly audit report       id: 1102341,
+1011 silly audit report       url: 'https://github.com/advisories/GHSA-67mh-4wv8-2f99',
+1011 silly audit report       title: 'esbuild enables any website to send any requests to the development server and read the response',
+1011 silly audit report       severity: 'moderate',
+1011 silly audit report       vulnerable_versions: '<=0.24.2',
+1011 silly audit report       cwe: [Array],
+1011 silly audit report       cvss: [Object]
+1011 silly audit report     }
+1011 silly audit report   ]
+1011 silly audit report }
+1012 silly packumentCache corgi:https://registry.npmjs.org/esbuild cache-miss
+1013 http fetch GET 200 https://registry.npmjs.org/esbuild 140ms (cache revalidated)
+1014 silly packumentCache corgi:https://registry.npmjs.org/esbuild set size:879341 disposed:false
+1015 silly packumentCache corgi:https://registry.npmjs.org/vite cache-miss
+1016 http fetch GET 200 https://registry.npmjs.org/vite 71ms (cache revalidated)
+1017 silly packumentCache corgi:https://registry.npmjs.org/vite set size:2190484 disposed:false
+1018 silly packumentCache corgi:https://registry.npmjs.org/laravel-vite-plugin cache-miss
+1019 http fetch GET 200 https://registry.npmjs.org/laravel-vite-plugin 237ms (cache revalidated)
+1020 silly packumentCache corgi:https://registry.npmjs.org/laravel-vite-plugin set size:63107 disposed:false
+1021 info run esbuild@0.21.5 postinstall node_modules/esbuild node install.js
+1022 info run esbuild@0.21.5 postinstall { code: 'EPERM', signal: undefined }
+1023 verbose stack Error: spawn EPERM
+1023 verbose stack     at ChildProcess.spawn (node:internal/child_process:421:11)
+1023 verbose stack     at spawn (node:child_process:796:9)
+1023 verbose stack     at promiseSpawn (C:\Program Files\nodejs\node_modules\npm\node_modules\@npmcli\promise-spawn\lib\index.js:39:16)
+1023 verbose stack     at spawnWithShell (C:\Program Files\nodejs\node_modules\npm\node_modules\@npmcli\promise-spawn\lib\index.js:124:10)
+1023 verbose stack     at promiseSpawn (C:\Program Files\nodejs\node_modules\npm\node_modules\@npmcli\promise-spawn\lib\index.js:12:12)
+1023 verbose stack     at runScriptPkg (C:\Program Files\nodejs\node_modules\npm\node_modules\@npmcli\run-script\lib\run-script-pkg.js:79:13)
+1023 verbose stack     at runScript (C:\Program Files\nodejs\node_modules\npm\node_modules\@npmcli\run-script\lib\run-script.js:9:12)
+1023 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\rebuild.js:332:17
+1023 verbose stack     at run (C:\Program Files\nodejs\node_modules\npm\node_modules\promise-call-limit\dist\commonjs\index.js:67:22)
+1023 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\promise-call-limit\dist\commonjs\index.js:84:9
+1024 error code EPERM
+1025 error syscall spawn
+1026 error errno -4048
+1027 error Error: spawn EPERM
+1027 error     at ChildProcess.spawn (node:internal/child_process:421:11)
+1027 error     at spawn (node:child_process:796:9)
+1027 error     at promiseSpawn (C:\Program Files\nodejs\node_modules\npm\node_modules\@npmcli\promise-spawn\lib\index.js:39:16)
+1027 error     at spawnWithShell (C:\Program Files\nodejs\node_modules\npm\node_modules\@npmcli\promise-spawn\lib\index.js:124:10)
+1027 error     at promiseSpawn (C:\Program Files\nodejs\node_modules\npm\node_modules\@npmcli\promise-spawn\lib\index.js:12:12)
+1027 error     at runScriptPkg (C:\Program Files\nodejs\node_modules\npm\node_modules\@npmcli\run-script\lib\run-script-pkg.js:79:13)
+1027 error     at runScript (C:\Program Files\nodejs\node_modules\npm\node_modules\@npmcli\run-script\lib\run-script.js:9:12)
+1027 error     at C:\Program Files\nodejs\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\rebuild.js:332:17
+1027 error     at run (C:\Program Files\nodejs\node_modules\npm\node_modules\promise-call-limit\dist\commonjs\index.js:67:22)
+1027 error     at C:\Program Files\nodejs\node_modules\npm\node_modules\promise-call-limit\dist\commonjs\index.js:84:9 {
+1027 error   errno: -4048,
+1027 error   code: 'EPERM',
+1027 error   syscall: 'spawn'
+1027 error }
+1028 error
+1028 error The operation was rejected by your operating system.
+1028 error It's possible that the file was already in use (by a text editor or antivirus),
+1028 error or that you lack permissions to access it.
+1028 error
+1028 error If you believe this might be a permissions issue, please double-check the
+1028 error permissions of the file and its containing directories, or try running
+1028 error the command again as root/Administrator.
+1029 silly unfinished npm timer reify 1772203765228
+1030 silly unfinished npm timer reify:build 1772203771181
+1031 silly unfinished npm timer build 1772203771181
+1032 silly unfinished npm timer build:deps 1772203771181
+1033 silly unfinished npm timer build:run:postinstall 1772203771201
+1034 silly unfinished npm timer build:run:postinstall:node_modules/esbuild 1772203771201
+1035 verbose cwd C:\Users\Admin\Project-Coder\e-stimate
+1036 verbose os Windows_NT 10.0.26200
+1037 verbose node v24.13.0
+1038 verbose npm  v11.6.2
+1039 verbose exit -4048
+1040 verbose code -4048
+1041 error A complete log of this run can be found in: c:\Users\Admin\Project-Coder\e-stimate\.npm-cache\_logs\2026-02-27T14_49_24_945Z-debug-0.log
