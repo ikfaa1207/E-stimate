@@ -26,6 +26,19 @@
                         </div>
 
                         <div>
+                            <x-input-label for="client_id" value="Assigned Client User (Optional)" />
+                            <select id="client_id" name="client_id" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+                                <option value="">-- No User Assignment --</option>
+                                @foreach($clients as $client)
+                                    <option value="{{ $client->id }}" @selected(old('client_id', $project->client_id) == $client->id)>
+                                        {{ $client->name }} ({{ $client->email }})
+                                    </option>
+                                @endforeach
+                            </select>
+                            <x-input-error class="mt-2" :messages="$errors->get('client_id')" />
+                        </div>
+
+                        <div>
                             <x-input-label for="lot_area" value="Lot Area (sqm)" />
                             <x-text-input id="lot_area" name="lot_area" type="number" step="0.01" min="0" class="mt-1 block w-full" :value="old('lot_area', $project->lot_area)" />
                             <x-input-error class="mt-2" :messages="$errors->get('lot_area')" />

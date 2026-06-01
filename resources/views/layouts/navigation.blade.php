@@ -15,8 +15,12 @@
                     <x-nav-link :href="route('projects.index')" :active="request()->routeIs('projects.*')">
                         {{ __('Projects') }}
                     </x-nav-link>
+                    @if(!Auth::user()->isClient())
                     <x-nav-link :href="route('spaces.index')" :active="request()->routeIs('spaces.*')">
                         {{ __('Space Standards') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('finish-levels.index')" :active="request()->routeIs('finish-levels.*')">
+                        {{ __('Finish Levels') }}
                     </x-nav-link>
                     <x-nav-link :href="route('items.index')" :active="request()->routeIs('items.*')">
                         {{ __('Items') }}
@@ -24,6 +28,7 @@
                     <x-nav-link :href="route('assemblies.index')" :active="request()->routeIs('assemblies.*') || request()->routeIs('assembly-mappings.*')">
                         {{ __('Assemblies') }}
                     </x-nav-link>
+                    @endif
                 </div>
             </div>
 
@@ -79,8 +84,12 @@
             <x-responsive-nav-link :href="route('projects.index')" :active="request()->routeIs('projects.*')">
                 {{ __('Projects') }}
             </x-responsive-nav-link>
+            @if(!Auth::user()->isClient())
             <x-responsive-nav-link :href="route('spaces.index')" :active="request()->routeIs('spaces.*')">
                 {{ __('Space Standards') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('finish-levels.index')" :active="request()->routeIs('finish-levels.*')">
+                {{ __('Finish Levels') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('items.index')" :active="request()->routeIs('items.*')">
                 {{ __('Items') }}
@@ -88,6 +97,7 @@
             <x-responsive-nav-link :href="route('assemblies.index')" :active="request()->routeIs('assemblies.*') || request()->routeIs('assembly-mappings.*')">
                 {{ __('Assemblies') }}
             </x-responsive-nav-link>
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->

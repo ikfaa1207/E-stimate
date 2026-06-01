@@ -18,9 +18,51 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         User::updateOrCreate(
-            ['email' => 'test@example.com'],
-            ['name' => 'Test User', 'password' => bcrypt('password')]
+            ['email' => 'admin@example.com'],
+            ['name' => 'Admin User', 'password' => bcrypt('password'), 'role' => User::ROLE_ADMIN]
         );
+
+        User::updateOrCreate(
+            ['email' => 'test@example.com'],
+            ['name' => 'Estimator User', 'password' => bcrypt('password'), 'role' => User::ROLE_ESTIMATOR]
+        );
+
+        User::updateOrCreate(
+            ['email' => 'client@example.com'],
+            ['name' => 'Client User', 'password' => bcrypt('password'), 'role' => User::ROLE_CLIENT]
+        );
+
+        collect([
+            [
+                'name' => 'economy',
+                'display_name' => 'Economy',
+                'material_multiplier' => 0.90,
+                'labor_multiplier' => 0.90,
+                'equipment_multiplier' => 0.90,
+                'is_active' => true,
+            ],
+            [
+                'name' => 'standard',
+                'display_name' => 'Standard',
+                'material_multiplier' => 1.00,
+                'labor_multiplier' => 1.00,
+                'equipment_multiplier' => 1.00,
+                'is_active' => true,
+            ],
+            [
+                'name' => 'premium',
+                'display_name' => 'Premium',
+                'material_multiplier' => 1.20,
+                'labor_multiplier' => 1.20,
+                'equipment_multiplier' => 1.20,
+                'is_active' => true,
+            ],
+        ])->each(function (array $level): void {
+            \App\Models\FinishLevel::updateOrCreate(
+                ['name' => $level['name']],
+                $level
+            );
+        });
 
         collect([
             [

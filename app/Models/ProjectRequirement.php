@@ -32,6 +32,7 @@ class ProjectRequirement extends Model
         'living_rooms',
         'kitchen_count',
         'finish_level',
+        'space_area_overrides',
     ];
 
     protected $casts = [
@@ -41,6 +42,7 @@ class ProjectRequirement extends Model
         'garage_count' => 'integer',
         'living_rooms' => 'integer',
         'kitchen_count' => 'integer',
+        'space_area_overrides' => 'array',
     ];
 
     public function project(): BelongsTo

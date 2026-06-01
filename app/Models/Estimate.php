@@ -22,6 +22,7 @@ class Estimate extends Model
         'total_cost',
         'cost_per_sqm',
         'generated_at',
+        'status',
     ];
 
     protected $casts = [
@@ -33,6 +34,26 @@ class Estimate extends Model
         'cost_per_sqm' => 'decimal:2',
         'generated_at' => 'datetime',
     ];
+
+    public function isApproved(): bool
+    {
+        return $this->status === 'approved';
+    }
+
+    public function isDraft(): bool
+    {
+        return $this->status === 'draft';
+    }
+
+    public function isLocked(): bool
+    {
+        return $this->status === 'locked';
+    }
+
+    public function isEditable(): bool
+    {
+        return $this->status === 'draft';
+    }
 
     public function project(): BelongsTo
     {
@@ -52,5 +73,10 @@ class Estimate extends Model
     public function breakdowns(): HasMany
     {
         return $this->hasMany(EstimateBreakdown::class);
+    }
+
+    public function adjustments(): HasMany
+    {
+        return $this->hasMany(EstimateAdjustment::class);
     }
 }

@@ -48,10 +48,13 @@ class EstimateGenerator
             ]);
         }
 
-        $finishMultiplier = (float) config(
-            'estimation.finish_level_multipliers.'.$requirement->finish_level,
-            1.0
-        );
+        $finishLevel = \App\Models\FinishLevel::where('name', $requirement->finish_level)->first();
+
+        if (! $finishLevel) {
+            throw ValidationException::withMessages([
+                'finish_level' => "Finish level '{$requirement->finish_level}' is not defined in the system.",
+            ]);
+        }
 
         return DB::transaction(function () use (
             $project,
@@ -59,7 +62,7 @@ class EstimateGenerator
             $metrics,
             $metricValues,
             $mappings,
-            $finishMultiplier
+            $finishLevel
         ): Estimate {
             $estimate = Estimate::query()->create([
                 'project_id' => $project->id,
@@ -88,8 +91,7 @@ class EstimateGenerator
                     continue;
                 }
 
-                $baseAssemblyUnitCost = $this->assemblyUnitCost($assembly);
-                $adjustedUnitCost = $baseAssemblyUnitCost * $finishMultiplier;
+                $adjustedUnitCost = $this->assemblyUnitCost($assembly, $finishLevel);
                 $lineTotal = $metricValue * $adjustedUnitCost;
 
                 $estimate->lines()->create([
@@ -114,7 +116,7 @@ class EstimateGenerator
                     $lineBreakdown = $metricValue
                         * (float) $assemblyItem->qty_per_unit
                         * (float) $item->unit_cost
-                        * $finishMultiplier;
+                        * $finishLevel->getMultiplierForType($item->type);
 
                     $breakdownTotals[$item->type] += $lineBreakdown;
                 }
@@ -140,10 +142,10 @@ class EstimateGenerator
         });
     }
 
-    private function assemblyUnitCost(Assembly $assembly): float
+    private function assemblyUnitCost(Assembly $assembly, \App\Models\FinishLevel $finishLevel): float
     {
         return (float) $assembly->assemblyItems->sum(
-            fn ($assemblyItem): float => (float) $assemblyItem->qty_per_unit * (float) $assemblyItem->item?->unit_cost
+            fn ($assemblyItem): float => (float) $assemblyItem->qty_per_unit * (float) ($assemblyItem->item?->unit_cost ?? 0) * $finishLevel->getMultiplierForType($assemblyItem->item?->type ?? '')
         );
     }
 }

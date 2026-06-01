@@ -28,6 +28,23 @@ class EstimateBoqSheet implements FromArray, WithTitle
             ];
         }
 
+        if ($this->estimate->adjustments->isNotEmpty()) {
+            $rows[] = ['', '', '', '', ''];
+            $rows[] = ['Custom Adjustments', '', '', '', ''];
+            foreach ($this->estimate->adjustments as $adjustment) {
+                $rows[] = [
+                    $adjustment->name . ' (' . ucfirst($adjustment->type) . ')',
+                    '',
+                    '',
+                    '',
+                    (float) $adjustment->amount,
+                ];
+            }
+        }
+
+        $rows[] = ['', '', '', '', ''];
+        $rows[] = ['Adjusted Grand Total', '', '', '', (float) $this->estimate->total_cost];
+
         return $rows;
     }
 

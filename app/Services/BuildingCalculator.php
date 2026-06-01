@@ -32,7 +32,13 @@ class BuildingCalculator
                 continue;
             }
 
-            $singleFloorArea += (float) $space->default_area_sqm * $quantity;
+            $area = (float) $space->default_area_sqm;
+            $overrides = $requirement->space_area_overrides;
+            if (is_array($overrides) && isset($overrides[$category]) && (float) $overrides[$category] > 0) {
+                $area = (float) $overrides[$category];
+            }
+
+            $singleFloorArea += $area * $quantity;
         }
 
         $totalSpaceArea = $singleFloorArea * max(1, $requirement->number_of_floors);

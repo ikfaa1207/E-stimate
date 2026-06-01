@@ -14,6 +14,7 @@ class AssemblyController extends Controller
     public function index(): View
     {
         $assemblies = Assembly::query()
+            ->with(['assemblyItems.item'])
             ->withCount('assemblyItems')
             ->latest()
             ->paginate(15);

@@ -4,9 +4,11 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ $project->name }}
             </h2>
+            @can('update', $project)
             <a href="{{ route('projects.edit', $project) }}" class="inline-flex items-center px-4 py-2 bg-gray-200 rounded-md text-xs font-semibold uppercase">
                 Edit Project
             </a>
+            @endcan
         </div>
     </x-slot>
 
@@ -33,9 +35,11 @@
                 <div class="p-6 text-gray-900">
                     <div class="flex items-center justify-between">
                         <h3 class="text-lg font-semibold">Requirement Wizard</h3>
+                        @can('update', $project)
                         <a href="{{ route('projects.requirements.edit', $project) }}" class="inline-flex items-center px-4 py-2 bg-indigo-600 text-white rounded-md text-xs font-semibold uppercase">
                             {{ $project->requirement ? 'Edit Requirements' : 'Start Wizard' }}
                         </a>
+                        @endcan
                     </div>
 
                     @if($project->requirement)
@@ -49,8 +53,8 @@
                             <div><span class="text-gray-500">Finish:</span> <span class="uppercase">{{ $project->requirement->finish_level }}</span></div>
                         </div>
                     @else
-                        <p class="mt-3 text-sm text-yellow-700 bg-yellow-50 p-3 rounded">
-                            Complete the wizard first to enable estimate generation.
+                        <p class="mt-3 text-sm text-gray-500 bg-gray-50 p-3 rounded">
+                            No requirements defined yet.
                         </p>
                     @endif
                 </div>
@@ -60,10 +64,18 @@
                 <div class="p-6 text-gray-900">
                     <div class="flex items-center justify-between">
                         <h3 class="text-lg font-semibold">Instant Estimate</h3>
-                        <form method="POST" action="{{ route('projects.estimates.store', $project) }}">
-                            @csrf
-                            <x-primary-button :disabled="!$project->requirement">Generate Estimate</x-primary-button>
-                        </form>
+                        @can('update', $project)
+                        @if($latestEstimate && !$latestEstimate->isEditable())
+                            <span class="inline-flex items-center px-3 py-1.5 rounded text-xs font-semibold uppercase bg-amber-100 text-amber-800">
+                                Latest Estimate Locked
+                            </span>
+                        @else
+                            <form method="POST" action="{{ route('projects.estimates.store', $project) }}">
+                                @csrf
+                                <x-primary-button :disabled="!$project->requirement">Generate Estimate</x-primary-button>
+                            </form>
+                        @endif
+                        @endcan
                     </div>
 
                     @if($latestEstimate)

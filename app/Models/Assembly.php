@@ -32,4 +32,11 @@ class Assembly extends Model
     {
         return $this->hasMany(AssemblyMapping::class);
     }
+
+    public function getBaseUnitCostAttribute(): float
+    {
+        return (float) $this->assemblyItems->sum(function ($assemblyItem) {
+            return (float) ($assemblyItem->qty_per_unit * ($assemblyItem->item->unit_cost ?? 0));
+        });
+    }
 }

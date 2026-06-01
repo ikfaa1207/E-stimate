@@ -23,44 +23,64 @@
                             <div>
                                 <x-input-label for="finish_level" value="Finish Level" />
                                 <select id="finish_level" name="finish_level" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
-                                    @foreach(\App\Models\ProjectRequirement::FINISH_LEVELS as $finishLevel)
-                                        <option value="{{ $finishLevel }}" @selected(old('finish_level', $requirement->finish_level ?? 'standard') === $finishLevel)>
-                                            {{ ucfirst($finishLevel) }}
+                                    @foreach($finishLevels as $finishLevel)
+                                        <option value="{{ $finishLevel->name }}" @selected(old('finish_level', $requirement->finish_level ?? 'standard') === $finishLevel->name)>
+                                            {{ $finishLevel->display_name }}
                                         </option>
                                     @endforeach
                                 </select>
                                 <x-input-error class="mt-2" :messages="$errors->get('finish_level')" />
                             </div>
 
-                            <div>
-                                <x-input-label for="bedrooms" value="Bedrooms" />
-                                <x-text-input id="bedrooms" name="bedrooms" type="number" min="0" class="mt-1 block w-full" :value="old('bedrooms', $requirement->bedrooms ?? 0)" required />
-                                <x-input-error class="mt-2" :messages="$errors->get('bedrooms')" />
-                            </div>
-
-                            <div>
-                                <x-input-label for="bathrooms" value="Bathrooms" />
-                                <x-text-input id="bathrooms" name="bathrooms" type="number" min="0" class="mt-1 block w-full" :value="old('bathrooms', $requirement->bathrooms ?? 0)" required />
-                                <x-input-error class="mt-2" :messages="$errors->get('bathrooms')" />
-                            </div>
-
-                            <div>
-                                <x-input-label for="garage_count" value="Garages" />
-                                <x-text-input id="garage_count" name="garage_count" type="number" min="0" class="mt-1 block w-full" :value="old('garage_count', $requirement->garage_count ?? 0)" required />
-                                <x-input-error class="mt-2" :messages="$errors->get('garage_count')" />
-                            </div>
-
-                            <div>
-                                <x-input-label for="living_rooms" value="Living Rooms" />
-                                <x-text-input id="living_rooms" name="living_rooms" type="number" min="0" class="mt-1 block w-full" :value="old('living_rooms', $requirement->living_rooms ?? 0)" required />
-                                <x-input-error class="mt-2" :messages="$errors->get('living_rooms')" />
-                            </div>
-
-                            <div>
-                                <x-input-label for="kitchen_count" value="Kitchens" />
-                                <x-text-input id="kitchen_count" name="kitchen_count" type="number" min="0" class="mt-1 block w-full" :value="old('kitchen_count', $requirement->kitchen_count ?? 0)" required />
-                                <x-input-error class="mt-2" :messages="$errors->get('kitchen_count')" />
-                            </div>
+                             <div>
+                                 <x-input-label for="bedrooms" value="Bedrooms (Default: {{ $spaces['bedroom']->default_area_sqm ?? 12 }} sqm)" />
+                                 <div class="flex gap-2">
+                                     <x-text-input id="bedrooms" name="bedrooms" type="number" min="0" class="mt-1 block w-2/3" :value="old('bedrooms', $requirement->bedrooms ?? 0)" required />
+                                     <x-text-input id="override_bedroom" name="space_area_overrides[bedroom]" type="number" step="0.01" min="0" placeholder="Override sqm" class="mt-1 block w-1/3" :value="old('space_area_overrides.bedroom', $requirement->space_area_overrides['bedroom'] ?? '')" />
+                                 </div>
+                                 <x-input-error class="mt-2" :messages="$errors->get('bedrooms')" />
+                                 <x-input-error class="mt-2" :messages="$errors->get('space_area_overrides.bedroom')" />
+                             </div>
+ 
+                             <div>
+                                 <x-input-label for="bathrooms" value="Bathrooms (Default: {{ $spaces['bathroom']->default_area_sqm ?? 4 }} sqm)" />
+                                 <div class="flex gap-2">
+                                     <x-text-input id="bathrooms" name="bathrooms" type="number" min="0" class="mt-1 block w-2/3" :value="old('bathrooms', $requirement->bathrooms ?? 0)" required />
+                                     <x-text-input id="override_bathroom" name="space_area_overrides[bathroom]" type="number" step="0.01" min="0" placeholder="Override sqm" class="mt-1 block w-1/3" :value="old('space_area_overrides.bathroom', $requirement->space_area_overrides['bathroom'] ?? '')" />
+                                 </div>
+                                 <x-input-error class="mt-2" :messages="$errors->get('bathrooms')" />
+                                 <x-input-error class="mt-2" :messages="$errors->get('space_area_overrides.bathroom')" />
+                             </div>
+ 
+                             <div>
+                                 <x-input-label for="garage_count" value="Garages (Default: {{ $spaces['garage']->default_area_sqm ?? 18 }} sqm)" />
+                                 <div class="flex gap-2">
+                                     <x-text-input id="garage_count" name="garage_count" type="number" min="0" class="mt-1 block w-2/3" :value="old('garage_count', $requirement->garage_count ?? 0)" required />
+                                     <x-text-input id="override_garage" name="space_area_overrides[garage]" type="number" step="0.01" min="0" placeholder="Override sqm" class="mt-1 block w-1/3" :value="old('space_area_overrides.garage', $requirement->space_area_overrides['garage'] ?? '')" />
+                                 </div>
+                                 <x-input-error class="mt-2" :messages="$errors->get('garage_count')" />
+                                 <x-input-error class="mt-2" :messages="$errors->get('space_area_overrides.garage')" />
+                             </div>
+ 
+                             <div>
+                                 <x-input-label for="living_rooms" value="Living Rooms (Default: {{ $spaces['living_room']->default_area_sqm ?? 16 }} sqm)" />
+                                 <div class="flex gap-2">
+                                     <x-text-input id="living_rooms" name="living_rooms" type="number" min="0" class="mt-1 block w-2/3" :value="old('living_rooms', $requirement->living_rooms ?? 0)" required />
+                                     <x-text-input id="override_living_room" name="space_area_overrides[living_room]" type="number" step="0.01" min="0" placeholder="Override sqm" class="mt-1 block w-1/3" :value="old('space_area_overrides.living_room', $requirement->space_area_overrides['living_room'] ?? '')" />
+                                 </div>
+                                 <x-input-error class="mt-2" :messages="$errors->get('living_rooms')" />
+                                 <x-input-error class="mt-2" :messages="$errors->get('space_area_overrides.living_room')" />
+                             </div>
+ 
+                             <div>
+                                 <x-input-label for="kitchen_count" value="Kitchens (Default: {{ $spaces['kitchen']->default_area_sqm ?? 10 }} sqm)" />
+                                 <div class="flex gap-2">
+                                     <x-text-input id="kitchen_count" name="kitchen_count" type="number" min="0" class="mt-1 block w-2/3" :value="old('kitchen_count', $requirement->kitchen_count ?? 0)" required />
+                                     <x-text-input id="override_kitchen" name="space_area_overrides[kitchen]" type="number" step="0.01" min="0" placeholder="Override sqm" class="mt-1 block w-1/3" :value="old('space_area_overrides.kitchen', $requirement->space_area_overrides['kitchen'] ?? '')" />
+                                 </div>
+                                 <x-input-error class="mt-2" :messages="$errors->get('kitchen_count')" />
+                                 <x-input-error class="mt-2" :messages="$errors->get('space_area_overrides.kitchen')" />
+                             </div>
                         </div>
 
                         <div class="flex justify-end gap-2">
