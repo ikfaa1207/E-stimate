@@ -23,6 +23,33 @@ class ProjectCommentController extends Controller
             'type' => ['required', 'string', 'in:comment,revision_request'],
         ]);
 
+        if ($validated['type'] === 'revision_request') {
+            if ($validated['estimate_id'] ?? null) {
+                $estimate = \App\Models\Estimate::find($validated['estimate_id']);
+                if ($estimate && $estimate->isApproved()) {
+                    if ($request->ajax() || $request->wantsJson()) {
+                        return response()->json([
+                            'success' => false,
+                            'message' => 'Revisions cannot be requested on an approved estimate proposal.'
+                        ], 422);
+                    }
+                    return redirect()->back()->withErrors(['content' => 'Revisions cannot be requested on an approved estimate proposal.']);
+                }
+            }
+            if ($validated['project_task_id'] ?? null) {
+                $hasApprovedEstimate = $project->estimates()->where('status', 'approved')->exists();
+                if ($hasApprovedEstimate) {
+                    if ($request->ajax() || $request->wantsJson()) {
+                        return response()->json([
+                            'success' => false,
+                            'message' => 'Task revisions cannot be requested once the project estimate is approved.'
+                        ], 422);
+                    }
+                    return redirect()->back()->withErrors(['content' => 'Task revisions cannot be requested once the project estimate is approved.']);
+                }
+            }
+        }
+
         $comment = $project->comments()->create([
             'project_task_id' => $validated['project_task_id'] ?? null,
             'estimate_id' => $validated['estimate_id'] ?? null,
@@ -69,6 +96,33 @@ class ProjectCommentController extends Controller
         ]);
 
         $authorName = $validated['author_name'] ?: ($project->client_name ?: 'Guest Client');
+
+        if ($validated['type'] === 'revision_request') {
+            if ($validated['estimate_id'] ?? null) {
+                $estimate = \App\Models\Estimate::find($validated['estimate_id']);
+                if ($estimate && $estimate->isApproved()) {
+                    if ($request->ajax() || $request->wantsJson()) {
+                        return response()->json([
+                            'success' => false,
+                            'message' => 'Revisions cannot be requested on an approved estimate proposal.'
+                        ], 422);
+                    }
+                    return redirect()->back()->withErrors(['content' => 'Revisions cannot be requested on an approved estimate proposal.']);
+                }
+            }
+            if ($validated['project_task_id'] ?? null) {
+                $hasApprovedEstimate = $project->estimates()->where('status', 'approved')->exists();
+                if ($hasApprovedEstimate) {
+                    if ($request->ajax() || $request->wantsJson()) {
+                        return response()->json([
+                            'success' => false,
+                            'message' => 'Task revisions cannot be requested once the project estimate is approved.'
+                        ], 422);
+                    }
+                    return redirect()->back()->withErrors(['content' => 'Task revisions cannot be requested once the project estimate is approved.']);
+                }
+            }
+        }
 
         $comment = $project->comments()->create([
             'project_task_id' => $validated['project_task_id'] ?? null,

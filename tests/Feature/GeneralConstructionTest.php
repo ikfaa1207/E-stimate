@@ -177,6 +177,8 @@ class GeneralConstructionTest extends TestCase
 
         $this->assertNotNull($project->share_token);
 
+        $this->withSession(["project_share_verified_{$project->id}" => true]);
+
         $response = $this->get(route('projects.share.show', $project->share_token));
 
         $response->assertStatus(200);
@@ -210,6 +212,8 @@ class GeneralConstructionTest extends TestCase
             'generated_at' => now(),
             'status' => 'locked',
         ]);
+
+        $this->withSession(["project_share_verified_{$project->id}" => true]);
 
         $response = $this->post(route('projects.share.approve', $project->share_token));
 

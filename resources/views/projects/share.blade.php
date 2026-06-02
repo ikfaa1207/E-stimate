@@ -358,19 +358,23 @@
                                                                              @csrf
                                                                              <input type="hidden" name="project_task_id" value="{{ $task->id }}">
                                                                              <div class="flex gap-2">
-                                                                                 <input type="text" name="author_name" placeholder="Your Name (Optional)" class="w-1/3 text-xs border-gray-300 rounded shadow-sm focus:ring-indigo-500 focus:border-indigo-500" />
+                                                                                 <input type="text" name="author_name" placeholder="Your Name (Optional)" class="w-1/3 text-xs border-gray-300 rounded shadow-sm focus:ring-indigo-500 focus:border-indigo-500" value="{{ session('comment_author_name') }}" oninput="syncAuthorName(this.value)" />
                                                                                  <textarea id="task-comment-content-{{ $task->id }}" name="content" required rows="2" class="w-2/3 text-xs border-gray-300 rounded shadow-sm transition-colors duration-200 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Ask a question or request a revision..."></textarea>
                                                                              </div>
                                                                              <div class="flex items-center justify-between">
-                                                                                 <div class="inline-flex rounded-lg p-0.5 bg-gray-200" id="type-pill-selector-task-{{ $task->id }}">
-                                                                                     <button type="button" onclick="setTaskCommentType({{ $task->id }}, 'comment')" id="type-btn-comment-task-{{ $task->id }}" class="px-2.5 py-1 rounded-md text-[10px] font-semibold transition-all duration-200 bg-white text-indigo-700 shadow-sm focus:outline-none">
-                                                                                         Comment
-                                                                                     </button>
-                                                                                     <button type="button" onclick="setTaskCommentType({{ $task->id }}, 'revision_request')" id="type-btn-revision-task-{{ $task->id }}" class="px-2.5 py-1 rounded-md text-[10px] font-semibold transition-all duration-200 text-gray-600 hover:text-gray-900 focus:outline-none">
-                                                                                         ⚠️ Request Revision
-                                                                                     </button>
-                                                                                     <input type="hidden" name="type" id="comment-type-input-task-{{ $task->id }}" value="comment">
-                                                                                 </div>
+                                                                                 @if($latestEstimate && $latestEstimate->isApproved())
+                                                                                     <input type="hidden" name="type" value="comment">
+                                                                                 @else
+                                                                                     <div class="inline-flex rounded-lg p-0.5 bg-gray-200" id="type-pill-selector-task-{{ $task->id }}">
+                                                                                         <button type="button" onclick="setTaskCommentType({{ $task->id }}, 'comment')" id="type-btn-comment-task-{{ $task->id }}" class="px-2.5 py-1 rounded-md text-[10px] font-semibold transition-all duration-200 bg-white text-indigo-700 shadow-sm focus:outline-none">
+                                                                                             Comment
+                                                                                         </button>
+                                                                                         <button type="button" onclick="setTaskCommentType({{ $task->id }}, 'revision_request')" id="type-btn-revision-task-{{ $task->id }}" class="px-2.5 py-1 rounded-md text-[10px] font-semibold transition-all duration-200 text-gray-600 hover:text-gray-900 focus:outline-none">
+                                                                                             ⚠️ Request Revision
+                                                                                         </button>
+                                                                                         <input type="hidden" name="type" id="comment-type-input-task-{{ $task->id }}" value="comment">
+                                                                                     </div>
+                                                                                 @endif
                                                                                  <button type="submit" class="inline-flex items-center px-3 py-1 bg-indigo-600 hover:bg-indigo-700 text-white rounded text-[10px] font-semibold uppercase tracking-wider transition">Post Comment</button>
                                                                              </div>
                                                                          </form>
@@ -557,7 +561,7 @@
                                               <input type="hidden" name="estimate_id" value="{{ $latestEstimate->id }}">
                                               <div class="grid grid-cols-1 sm:grid-cols-4 gap-3">
                                                   <div class="sm:col-span-1">
-                                                      <input type="text" name="author_name" placeholder="Your Name" class="w-full text-xs border-gray-300 rounded shadow-sm focus:ring-indigo-500 focus:border-indigo-500" />
+                                                      <input type="text" name="author_name" placeholder="Your Name" class="w-full text-xs border-gray-300 rounded shadow-sm focus:ring-indigo-500 focus:border-indigo-500" oninput="syncAuthorName(this.value)" />
                                                   </div>
                                                   <div class="sm:col-span-3">
                                                       <textarea id="estimate-comment-content" name="content" required rows="2" class="w-full text-xs border-gray-300 rounded shadow-sm transition-colors duration-200 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Type a message or request a revision..."></textarea>
@@ -565,22 +569,28 @@
                                               </div>
                                               <div class="flex flex-col gap-3">
                                                   <div class="flex items-center justify-between flex-wrap gap-2">
-                                                      <div class="inline-flex rounded-lg p-0.5 bg-gray-200" id="type-pill-selector">
-                                                          <button type="button" onclick="setCommentType('comment')" id="type-btn-comment" class="px-3.5 py-1.5 rounded-md text-xs font-semibold transition-all duration-200 bg-white text-indigo-700 shadow-sm focus:outline-none">
-                                                              General Comment
-                                                          </button>
-                                                          <button type="button" onclick="setCommentType('revision_request')" id="type-btn-revision" class="px-3.5 py-1.5 rounded-md text-xs font-semibold transition-all duration-200 text-gray-600 hover:text-gray-900 focus:outline-none">
-                                                              ⚠️ Request Revision
-                                                          </button>
-                                                          <input type="hidden" name="type" id="comment-type-input" value="comment">
-                                                      </div>
+                                                      @if($latestEstimate->isApproved())
+                                                          <input type="hidden" name="type" value="comment">
+                                                      @else
+                                                          <div class="inline-flex rounded-lg p-0.5 bg-gray-200" id="type-pill-selector">
+                                                              <button type="button" onclick="setCommentType('comment')" id="type-btn-comment" class="px-3.5 py-1.5 rounded-md text-xs font-semibold transition-all duration-200 bg-white text-indigo-700 shadow-sm focus:outline-none">
+                                                                  General Comment
+                                                              </button>
+                                                              <button type="button" onclick="setCommentType('revision_request')" id="type-btn-revision" class="px-3.5 py-1.5 rounded-md text-xs font-semibold transition-all duration-200 text-gray-600 hover:text-gray-900 focus:outline-none">
+                                                                  ⚠️ Request Revision
+                                                              </button>
+                                                              <input type="hidden" name="type" id="comment-type-input" value="comment">
+                                                          </div>
+                                                      @endif
                                                       <button type="submit" class="inline-flex items-center px-4 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded text-xs font-semibold uppercase tracking-wider transition">Post Comment</button>
                                                   </div>
-                                                  <!-- Helper warning message for revision request -->
-                                                  <div id="revision-helper-msg" class="hidden text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded p-2.5 flex items-start gap-2">
-                                                      <svg class="w-4 h-4 text-amber-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
-                                                      <span><strong>Important:</strong> Submitting a revision request will automatically set the proposal status to <em>Revision Pending</em>, enabling modifications and lock controls for the contractor.</span>
-                                                  </div>
+                                                  @if(!$latestEstimate->isApproved())
+                                                      <!-- Helper warning message for revision request -->
+                                                      <div id="revision-helper-msg" class="hidden text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded p-2.5 flex items-start gap-2">
+                                                          <svg class="w-4 h-4 text-amber-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                                                          <span><strong>Important:</strong> Submitting a revision request will automatically set the proposal status to <em>Revision Pending</em>, enabling modifications and lock controls for the contractor.</span>
+                                                      </div>
+                                                  @endif
                                               </div>
                                       </form>                                            </div>
                                      </div>
@@ -618,6 +628,15 @@
             function toggleTaskComments(id) {
                 const row = document.getElementById('task-comments-row-' + id);
                 if (row) row.classList.toggle('hidden');
+            }
+
+            function syncAuthorName(val) {
+                document.querySelectorAll('input[name="author_name"]').forEach(input => {
+                    if (input !== document.activeElement) {
+                        input.value = val;
+                    }
+                });
+                localStorage.setItem('guest_author_name', val);
             }
 
             function showToast(message, type = 'success') {
@@ -713,12 +732,30 @@
             }
 
             document.addEventListener('DOMContentLoaded', function() {
+                // Load guest name from localStorage or default to client name
+                const storedName = localStorage.getItem('guest_author_name');
+                const defaultName = storedName || "{{ $project->client_name }}";
+                if (defaultName) {
+                    document.querySelectorAll('input[name="author_name"]').forEach(input => {
+                        input.value = defaultName;
+                    });
+                }
+
                 // AJAX for task comments
                 document.querySelectorAll('.task-comment-ajax-form').forEach(form => {
                     form.addEventListener('submit', function(e) {
                         e.preventDefault();
                         const taskId = form.dataset.taskId;
                         const formData = new FormData(form);
+                        
+                        // Save name to localStorage and sync across forms
+                        const nameInput = form.querySelector('input[name="author_name"]');
+                        if (nameInput && nameInput.value.trim()) {
+                            localStorage.setItem('guest_author_name', nameInput.value.trim());
+                            document.querySelectorAll('input[name="author_name"]').forEach(input => {
+                                input.value = nameInput.value.trim();
+                            });
+                        }
                         
                         fetch(form.action, {
                             method: 'POST',
@@ -774,6 +811,14 @@
                                 }
                                 
                                 form.reset();
+                                
+                                // Restore name from localStorage
+                                const renewedStoredName = localStorage.getItem('guest_author_name') || "{{ $project->client_name }}";
+                                if (renewedStoredName) {
+                                    const thisFormNameInput = form.querySelector('input[name="author_name"]');
+                                    if (thisFormNameInput) thisFormNameInput.value = renewedStoredName;
+                                }
+                                
                                 setTaskCommentType(taskId, 'comment');
                                 updateTaskCommentCount(taskId, 1);
                                 updateTaskRevisionBadge(taskId);
@@ -795,6 +840,15 @@
                     estForm.addEventListener('submit', function(e) {
                         e.preventDefault();
                         const formData = new FormData(estForm);
+                        
+                        // Save name to localStorage and sync across forms
+                        const nameInput = estForm.querySelector('input[name="author_name"]');
+                        if (nameInput && nameInput.value.trim()) {
+                            localStorage.setItem('guest_author_name', nameInput.value.trim());
+                            document.querySelectorAll('input[name="author_name"]').forEach(input => {
+                                input.value = nameInput.value.trim();
+                            });
+                        }
                         
                         fetch(estForm.action, {
                             method: 'POST',
@@ -868,6 +922,14 @@
                                 }
                                 
                                 estForm.reset();
+                                
+                                // Restore name from localStorage
+                                const renewedStoredName = localStorage.getItem('guest_author_name') || "{{ $project->client_name }}";
+                                if (renewedStoredName) {
+                                    const thisFormNameInput = estForm.querySelector('input[name="author_name"]');
+                                    if (thisFormNameInput) thisFormNameInput.value = renewedStoredName;
+                                }
+                                
                                 setCommentType('comment');
                                 showToast(data.message || 'Comment posted successfully!');
                             } else {

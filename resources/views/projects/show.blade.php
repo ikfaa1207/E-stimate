@@ -38,21 +38,34 @@
             </div>
 
             <!-- Share Link Banner -->
-            <div class="bg-indigo-50 border border-indigo-200 rounded-lg p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="bg-indigo-50 border border-indigo-200 rounded-lg p-4 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
                 <div class="flex items-center gap-3">
                     <svg class="h-6 w-6 text-indigo-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
                     </svg>
                     <div>
-                        <h4 class="text-sm font-semibold text-indigo-900">Guest Shareable Link</h4>
-                        <p class="text-xs text-indigo-700">Send this secure link to your client to let them track progress and approve estimates without an account.</p>
+                        <h4 class="text-sm font-semibold text-indigo-900">Guest Shareable Link & PIN</h4>
+                        <p class="text-xs text-indigo-700">Send this secure link and the access PIN to your client to let them track progress and approve estimates without an account.</p>
                     </div>
                 </div>
-                <div class="flex w-full sm:w-auto items-center gap-2">
-                    <input type="text" readonly id="share-link-input" value="{{ route('projects.share.show', $project->share_token) }}" class="flex-1 sm:w-80 text-xs font-mono bg-white border border-indigo-200 rounded px-3 py-1.5 text-indigo-800 focus:outline-none" />
-                    <button onclick="copyShareLink()" class="px-4 py-1.5 bg-indigo-600 text-white rounded text-xs font-semibold uppercase hover:bg-indigo-700 transition whitespace-nowrap">
-                        Copy Link
-                    </button>
+                <div class="flex flex-col sm:flex-row w-full lg:w-auto items-stretch sm:items-center gap-4">
+                    <div class="flex items-center justify-between sm:justify-start gap-2 bg-indigo-100/50 border border-indigo-200/60 rounded px-3 py-1">
+                        <span class="text-[10px] font-bold text-indigo-900/60 uppercase tracking-wider">Access PIN:</span>
+                        <div class="flex items-center gap-1">
+                            <span class="font-mono text-sm font-bold text-indigo-800 tracking-wider">{{ $project->share_passcode }}</span>
+                            <button onclick="copySharePin('{{ $project->share_passcode }}')" class="p-1 text-indigo-600 hover:text-indigo-900 rounded hover:bg-indigo-100 transition" title="Copy PIN">
+                                <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 flex-1 sm:flex-none">
+                        <input type="text" readonly id="share-link-input" value="{{ route('projects.share.show', $project->share_token) }}" class="flex-1 sm:w-80 text-xs font-mono bg-white border border-indigo-200 rounded px-3 py-1.5 text-indigo-800 focus:outline-none" />
+                        <button onclick="copyShareLink()" class="px-4 py-1.5 bg-indigo-600 text-white rounded text-xs font-semibold uppercase hover:bg-indigo-700 transition whitespace-nowrap">
+                            Copy Link
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -393,15 +406,19 @@
                                                                     <input type="hidden" name="project_task_id" value="{{ $task->id }}">
                                                                     <textarea id="task-comment-content-{{ $task->id }}" name="content" required rows="2" class="w-full text-xs border-gray-300 rounded shadow-sm transition-colors duration-200 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Ask a question or request a revision..."></textarea>
                                                                     <div class="flex items-center justify-between">
-                                                                        <div class="inline-flex rounded-lg p-0.5 bg-gray-200" id="type-pill-selector-task-{{ $task->id }}">
-                                                                            <button type="button" onclick="setTaskCommentType({{ $task->id }}, 'comment')" id="type-btn-comment-task-{{ $task->id }}" class="px-2.5 py-1 rounded-md text-[10px] font-semibold transition-all duration-200 bg-white text-indigo-700 shadow-sm focus:outline-none">
-                                                                                Comment
-                                                                            </button>
-                                                                            <button type="button" onclick="setTaskCommentType({{ $task->id }}, 'revision_request')" id="type-btn-revision-task-{{ $task->id }}" class="px-2.5 py-1 rounded-md text-[10px] font-semibold transition-all duration-200 text-gray-600 hover:text-gray-900 focus:outline-none">
-                                                                                ⚠️ Request Revision
-                                                                            </button>
-                                                                            <input type="hidden" name="type" id="comment-type-input-task-{{ $task->id }}" value="comment">
-                                                                        </div>
+                                                                        @if($project->estimates()->where('status', 'approved')->exists())
+                                                                            <input type="hidden" name="type" value="comment">
+                                                                        @else
+                                                                            <div class="inline-flex rounded-lg p-0.5 bg-gray-200" id="type-pill-selector-task-{{ $task->id }}">
+                                                                                <button type="button" onclick="setTaskCommentType({{ $task->id }}, 'comment')" id="type-btn-comment-task-{{ $task->id }}" class="px-2.5 py-1 rounded-md text-[10px] font-semibold transition-all duration-200 bg-white text-indigo-700 shadow-sm focus:outline-none">
+                                                                                    Comment
+                                                                                </button>
+                                                                                <button type="button" onclick="setTaskCommentType({{ $task->id }}, 'revision_request')" id="type-btn-revision-task-{{ $task->id }}" class="px-2.5 py-1 rounded-md text-[10px] font-semibold transition-all duration-200 text-gray-600 hover:text-gray-900 focus:outline-none">
+                                                                                    ⚠️ Request Revision
+                                                                                </button>
+                                                                                <input type="hidden" name="type" id="comment-type-input-task-{{ $task->id }}" value="comment">
+                                                                            </div>
+                                                                        @endif
                                                                         <x-primary-button class="py-1.5 px-4 text-xs font-semibold uppercase tracking-wider">Post Comment</x-primary-button>
                                                                     </div>
                                                                 </form>
@@ -1020,6 +1037,11 @@
             } else {
                 badge.classList.add('hidden');
             }
+        }
+
+        function copySharePin(pin) {
+            navigator.clipboard.writeText(pin);
+            alert('Access PIN copied to clipboard!');
         }
     </script>
 </x-app-layout>

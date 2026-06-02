@@ -47,4 +47,36 @@ class ProjectShareController extends Controller
             ->route('projects.share.show', $token)
             ->with('status', 'Estimate proposal approved successfully!');
     }
+
+    /**
+     * Show the passcode verification screen for guest share access.
+     */
+    public function showAuth(string $token): View
+    {
+        $project = Project::where('share_token', $token)->firstOrFail();
+
+        return view('projects.share-auth', compact('project'));
+    }
+
+    /**
+     * Verify the passcode for guest share access.
+     */
+    public function verifyAuth(Request $request, string $token): RedirectResponse
+    {
+        $project = Project::where('share_token', $token)->firstOrFail();
+
+        $validated = $request->validate([
+            'passcode' => ['required', 'string', 'size:6'],
+        ]);
+
+        if ($validated['passcode'] === $project->share_passcode) {
+            session(["project_share_verified_{$project->id}" => true]);
+
+            return redirect()->route('projects.share.show', $token);
+        }
+
+        return redirect()->back()->withErrors([
+            'passcode' => 'The passcode you entered is incorrect.',
+        ]);
+    }
 }

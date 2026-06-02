@@ -15,6 +15,7 @@ class Project extends Model
     protected $fillable = [
         'client_id',
         'share_token',
+        'share_passcode',
         'name',
         'client_name',
         'lot_area',
@@ -33,6 +34,9 @@ class Project extends Model
         static::creating(function (Project $project) {
             if (empty($project->share_token)) {
                 $project->share_token = \Illuminate\Support\Str::random(32);
+            }
+            if (empty($project->share_passcode)) {
+                $project->share_passcode = str_pad((string) random_int(0, 999999), 6, '0', STR_PAD_LEFT);
             }
         });
     }

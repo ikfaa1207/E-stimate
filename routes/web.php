@@ -21,12 +21,19 @@ Route::get('/dashboard', function () {
     return redirect()->route('projects.index');
 })->middleware('auth')->name('dashboard');
 
-Route::get('share/{token}', [\App\Http\Controllers\ProjectShareController::class, 'show'])
-    ->name('projects.share.show');
-Route::post('share/{token}/approve', [\App\Http\Controllers\ProjectShareController::class, 'approve'])
-    ->name('projects.share.approve');
-Route::post('share/{token}/comments', [\App\Http\Controllers\ProjectCommentController::class, 'storeGuest'])
-    ->name('projects.share.comments.store');
+Route::get('share/{token}/auth', [\App\Http\Controllers\ProjectShareController::class, 'showAuth'])
+    ->name('projects.share.auth');
+Route::post('share/{token}/auth', [\App\Http\Controllers\ProjectShareController::class, 'verifyAuth'])
+    ->name('projects.share.verify');
+
+Route::middleware('share.passcode')->group(function () {
+    Route::get('share/{token}', [\App\Http\Controllers\ProjectShareController::class, 'show'])
+        ->name('projects.share.show');
+    Route::post('share/{token}/approve', [\App\Http\Controllers\ProjectShareController::class, 'approve'])
+        ->name('projects.share.approve');
+    Route::post('share/{token}/comments', [\App\Http\Controllers\ProjectCommentController::class, 'storeGuest'])
+        ->name('projects.share.comments.store');
+});
 
 Route::middleware('auth')->group(function () {
     Route::resource('projects', ProjectController::class);
