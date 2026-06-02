@@ -52,13 +52,22 @@ class ProjectController extends Controller
                     }
                 }
             ],
+            'building_type' => ['required', 'in:residential,commercial,industrial,institutional'],
+            'structural_type' => ['required', 'in:concrete,steel,mixed'],
+            'foundation_type' => ['required', 'in:footing,pile,raft'],
+            'number_of_floors' => ['required', 'integer', 'min:1'],
+            'gross_floor_area' => ['required', 'numeric', 'min:0.01'],
+            'footprint_area' => ['required', 'numeric', 'min:0.01'],
+            'finish_level' => ['required', 'in:economy,standard,premium'],
         ]);
 
         $project = Project::query()->create($validated);
 
+        app(\App\Services\ProjectSetupService::class)->setup($project);
+
         return redirect()
-            ->route('projects.requirements.edit', $project)
-            ->with('status', 'Project created. Complete requirement wizard next.');
+            ->route('projects.show', $project)
+            ->with('status', 'Project created and initialized with compliance checklists and construction workflow.');
     }
 
     public function show(Project $project): View
@@ -66,9 +75,11 @@ class ProjectController extends Controller
         Gate::authorize('view', $project);
 
         $project->load([
-            'requirement',
+            'compliances',
+            'phases.tasks.comments',
+            'comments',
             'estimates' => fn ($query) => $query
-                ->with(['lines', 'breakdowns'])
+                ->with(['lines', 'breakdowns', 'adjustments', 'comments'])
                 ->latest('generated_at'),
         ]);
 
@@ -105,13 +116,26 @@ class ProjectController extends Controller
                     }
                 }
             ],
+            'building_type' => ['required', 'in:residential,commercial,industrial,institutional'],
+            'structural_type' => ['required', 'in:concrete,steel,mixed'],
+            'foundation_type' => ['required', 'in:footing,pile,raft'],
+            'number_of_floors' => ['required', 'integer', 'min:1'],
+            'gross_floor_area' => ['required', 'numeric', 'min:0.01'],
+            'footprint_area' => ['required', 'numeric', 'min:0.01'],
+            'finish_level' => ['required', 'in:economy,standard,premium'],
         ]);
+
+        $oldFoundation = $project->foundation_type;
+        $oldStructural = $project->structural_type;
+        $oldBuilding = $project->building_type;
 
         $project->update($validated);
 
+        app(\App\Services\ProjectSetupService::class)->sync($project, $oldFoundation, $oldStructural, $oldBuilding);
+
         return redirect()
             ->route('projects.show', $project)
-            ->with('status', 'Project updated.');
+            ->with('status', 'Project updated and building components synchronized successfully.');
     }
 
     public function destroy(Project $project): RedirectResponse

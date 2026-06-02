@@ -9,6 +9,7 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProjectRequirementController;
+use App\Http\Controllers\ProjectWorkflowController;
 use App\Http\Controllers\SpaceController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,13 @@ Route::get('/dashboard', function () {
     return redirect()->route('projects.index');
 })->middleware('auth')->name('dashboard');
 
+Route::get('share/{token}', [\App\Http\Controllers\ProjectShareController::class, 'show'])
+    ->name('projects.share.show');
+Route::post('share/{token}/approve', [\App\Http\Controllers\ProjectShareController::class, 'approve'])
+    ->name('projects.share.approve');
+Route::post('share/{token}/comments', [\App\Http\Controllers\ProjectCommentController::class, 'storeGuest'])
+    ->name('projects.share.comments.store');
+
 Route::middleware('auth')->group(function () {
     Route::resource('projects', ProjectController::class);
     Route::get('projects/{project}/requirements', [ProjectRequirementController::class, 'edit'])
@@ -28,6 +36,16 @@ Route::middleware('auth')->group(function () {
         ->name('projects.requirements.update');
     Route::post('projects/{project}/estimates', [EstimateController::class, 'store'])
         ->name('projects.estimates.store');
+    Route::put('projects/{project}/compliance/{compliance}', [ProjectWorkflowController::class, 'updateCompliance'])
+        ->name('projects.compliance.update');
+    Route::put('projects/{project}/tasks/{task}', [ProjectWorkflowController::class, 'updateTask'])
+        ->name('projects.tasks.update');
+    Route::post('projects/{project}/comments', [\App\Http\Controllers\ProjectCommentController::class, 'store'])
+        ->name('projects.comments.store');
+    Route::post('projects/{project}/comments/{comment}/resolve', [\App\Http\Controllers\ProjectCommentController::class, 'resolve'])
+        ->name('projects.comments.resolve');
+    Route::delete('projects/{project}/comments/{comment}', [\App\Http\Controllers\ProjectCommentController::class, 'destroy'])
+        ->name('projects.comments.destroy');
     Route::get('projects/{project}/estimates/{estimate}', [EstimateController::class, 'show'])
         ->name('projects.estimates.show');
     Route::get('projects/{project}/estimates/{estimate}/export', [EstimateController::class, 'export'])

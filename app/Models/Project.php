@@ -14,14 +14,33 @@ class Project extends Model
 
     protected $fillable = [
         'client_id',
+        'share_token',
         'name',
         'client_name',
         'lot_area',
         'notes',
+        'building_type',
+        'structural_type',
+        'foundation_type',
+        'number_of_floors',
+        'gross_floor_area',
+        'footprint_area',
+        'finish_level',
     ];
+
+    protected static function booted(): void
+    {
+        static::creating(function (Project $project) {
+            if (empty($project->share_token)) {
+                $project->share_token = \Illuminate\Support\Str::random(32);
+            }
+        });
+    }
 
     protected $casts = [
         'lot_area' => 'decimal:2',
+        'gross_floor_area' => 'decimal:2',
+        'footprint_area' => 'decimal:2',
     ];
 
     public function client(): BelongsTo
@@ -38,4 +57,20 @@ class Project extends Model
     {
         return $this->hasMany(Estimate::class);
     }
+
+    public function compliances(): HasMany
+    {
+        return $this->hasMany(ProjectCompliance::class);
+    }
+
+    public function phases(): HasMany
+    {
+        return $this->hasMany(ProjectPhase::class)->orderBy('sequence');
+    }
+
+    public function comments(): HasMany
+    {
+        return $this->hasMany(ProjectComment::class);
+    }
 }
+

@@ -37,7 +37,7 @@ class BuildingCalculatorTest extends TestCase
             'finish_level' => ProjectRequirement::FINISH_LEVEL_STANDARD,
         ]);
 
-        $result = app(BuildingCalculator::class)->calculate($requirement);
+        $result = app(BuildingCalculator::class)->calculate($project);
 
         $this->assertEquals(176.00, $result['total_space_area']);
         $this->assertEquals(220.00, $result['gross_floor_area']);
@@ -73,7 +73,7 @@ class BuildingCalculatorTest extends TestCase
             ]
         ]);
 
-        $result = app(BuildingCalculator::class)->calculate($requirement);
+        $result = app(BuildingCalculator::class)->calculate($project);
 
         $this->assertEquals(194.00, $result['total_space_area']);
         $this->assertEquals(242.50, $result['gross_floor_area']);

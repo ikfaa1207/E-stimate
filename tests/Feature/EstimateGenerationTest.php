@@ -89,11 +89,11 @@ class EstimateGenerationTest extends TestCase
         $response->assertRedirect(route('projects.estimates.show', [$project, $estimate]));
         $estimate->refresh();
 
-        $this->assertCount(1, $estimate->adjustments);
+        $this->assertCount(3, $estimate->adjustments);
         $this->assertEquals(round($baseTotalCost + 5000, 2), (float) $estimate->total_cost);
         $this->assertEquals(round($baseMaterialCost + 5000, 2), (float) $estimate->breakdowns()->where('type', 'material')->value('amount'));
 
-        $adjustment = $estimate->adjustments->first();
+        $adjustment = $estimate->adjustments->where('name', 'Structural steel upgrade')->first();
 
         $response = $this
             ->actingAs($user)
@@ -122,7 +122,7 @@ class EstimateGenerationTest extends TestCase
         $response->assertRedirect(route('projects.estimates.show', [$project, $estimate]));
         $estimate->refresh();
 
-        $this->assertCount(0, $estimate->adjustments);
+        $this->assertCount(2, $estimate->adjustments);
         $this->assertEquals(round($baseTotalCost, 2), (float) $estimate->total_cost);
     }
 

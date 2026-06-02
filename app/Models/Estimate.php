@@ -50,9 +50,14 @@ class Estimate extends Model
         return $this->status === 'locked';
     }
 
+    public function isRevisionPending(): bool
+    {
+        return $this->status === 'revision_pending';
+    }
+
     public function isEditable(): bool
     {
-        return $this->status === 'draft';
+        return in_array($this->status, ['draft', 'revision_pending']);
     }
 
     public function project(): BelongsTo
@@ -79,4 +84,10 @@ class Estimate extends Model
     {
         return $this->hasMany(EstimateAdjustment::class);
     }
+
+    public function comments(): HasMany
+    {
+        return $this->hasMany(ProjectComment::class);
+    }
 }
+

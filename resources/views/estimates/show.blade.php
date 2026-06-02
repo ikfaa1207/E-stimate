@@ -66,6 +66,16 @@
                                         </button>
                                     </form>
                                 @endif
+                            @elseif($estimate->isRevisionPending())
+                                <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold uppercase bg-yellow-100 text-yellow-800 animate-pulse">
+                                    ⚠️ Revision Requested
+                                </span>
+                                @can('update', $project)
+                                    <form method="POST" action="{{ route('projects.estimates.lock', [$project, $estimate]) }}" class="inline">
+                                        @csrf
+                                        <button type="submit" class="text-xs text-emerald-600 hover:text-emerald-950 font-medium underline">Lock & Propose (Repropose)</button>
+                                    </form>
+                                @endcan
                             @else
                                 <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold uppercase bg-gray-100 text-gray-800">
                                     Draft
@@ -254,6 +264,122 @@
                     </div>
                     @endcan
                 </div>
+            <!-- Estimate Proposal Comments & Revision Requests -->
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900 space-y-6">
+                    <h3 class="text-lg font-semibold border-b pb-2 text-gray-800">Proposal Discussion & Revision Requests</h3>
+                    
+                    <!-- Revision Checklist -->
+                    <div class="space-y-3 mb-6">
+                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider flex items-center gap-2">
+                            <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>
+                            Revision Checklist
+                        </h4>
+                        <div class="space-y-3" id="estimate-revisions-list">
+                            @php
+                                $revisions = $estimate->comments->where('type', 'revision_request');
+                            @endphp
+                            @forelse($revisions as $comment)
+                                <div class="bg-amber-50/30 p-4 rounded-lg border border-amber-100 shadow-sm transition hover:shadow-md" id="comment-container-{{ $comment->id }}">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center gap-2">
+                                            <span class="font-bold text-sm text-gray-800">{{ $comment->author_name }}</span>
+                                            <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-amber-100 text-amber-800 uppercase font-sans">
+                                                Client Request
+                                            </span>
+                                        </div>
+                                        <div class="flex items-center gap-2 text-xs text-gray-400">
+                                            <span>{{ $comment->created_at->diffForHumans() }}</span>
+                                            @can('update', $project)
+                                                <button onclick="deleteComment({{ $project->id }}, {{ $comment->id }}, 'estimate', {{ $estimate->id }})" class="text-rose-600 hover:text-rose-900 font-semibold ml-2">Delete</button>
+                                            @endcan
+                                        </div>
+                                    </div>
+                                    <p class="text-sm text-gray-700 mt-2 whitespace-pre-line">{{ $comment->content }}</p>
+                                    
+                                    <div class="mt-3 flex items-center justify-between border-t border-amber-100/50 pt-2" id="comment-status-bar-{{ $comment->id }}">
+                                        <span id="comment-badge-{{ $comment->id }}" class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold {{ $comment->isResolved() ? 'bg-green-100 text-green-800' : 'bg-amber-100 text-amber-800 animate-pulse font-sans' }}">
+                                            {{ $comment->isResolved() ? 'Resolved' : 'Pending Revision' }}
+                                        </span>
+                                        @if($comment->isPending())
+                                            @can('update', $project)
+                                                <button id="comment-resolve-btn-{{ $comment->id }}" onclick="resolveRevision({{ $project->id }}, {{ $comment->id }}, 'estimate', {{ $estimate->id }})" class="text-xs text-indigo-600 hover:text-indigo-900 font-bold underline">
+                                                    Mark Resolved
+                                                </button>
+                                            @endcan
+                                        @endif
+                                    </div>
+                                </div>
+                            @empty
+                                <p class="text-xs text-gray-500 italic py-4 text-center border border-dashed rounded bg-gray-50/50" id="estimate-revisions-empty">No revision requests submitted yet.</p>
+                            @endforelse
+                        </div>
+                    </div>
+
+                    <!-- General Discussion -->
+                    <div class="space-y-3">
+                        <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider flex items-center gap-2">
+                            <svg class="w-4 h-4 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
+                            General Discussion
+                        </h4>
+                        <div class="space-y-3 max-h-80 overflow-y-auto pr-2" id="estimate-comments-list">
+                            @php
+                                $comments = $estimate->comments->where('type', 'comment');
+                            @endphp
+                            @forelse($comments as $comment)
+                                <div class="bg-gray-50/50 p-4 rounded-lg border shadow-sm transition hover:shadow-md" id="comment-container-{{ $comment->id }}">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center gap-2">
+                                            <span class="font-bold text-sm text-gray-800">{{ $comment->author_name }}</span>
+                                            <span class="px-2 py-0.5 rounded text-[10px] font-semibold capitalize font-sans {{ in_array($comment->author_role, ['admin', 'estimator']) ? 'bg-indigo-100 text-indigo-800' : 'bg-gray-100 text-gray-800' }}">
+                                                {{ $comment->author_role }}
+                                            </span>
+                                        </div>
+                                        <div class="flex items-center gap-2 text-xs text-gray-400">
+                                            <span>{{ $comment->created_at->diffForHumans() }}</span>
+                                            @can('update', $project)
+                                                <button onclick="deleteComment({{ $project->id }}, {{ $comment->id }}, 'estimate', {{ $estimate->id }})" class="text-rose-600 hover:text-rose-900 font-semibold ml-2">Delete</button>
+                                            @endcan
+                                        </div>
+                                    </div>
+                                    <p class="text-sm text-gray-700 mt-2 whitespace-pre-line">{{ $comment->content }}</p>
+                                </div>
+                            @empty
+                                <p class="text-xs text-gray-500 italic py-4 text-center border border-dashed rounded bg-gray-50/50" id="estimate-comments-empty">No general comments posted yet.</p>
+                            @endforelse
+                        </div>
+                    </div>
+
+                    <!-- Post Comment Form -->
+                    <form action="{{ route('projects.comments.store', $project) }}" method="POST" class="estimate-comment-ajax-form space-y-3 pt-2" id="estimate-comment-form">
+                        @csrf
+                        <input type="hidden" name="estimate_id" value="{{ $estimate->id }}">
+                        <div>
+                            <textarea id="estimate-comment-content" name="content" required rows="3" class="w-full text-sm border-gray-300 rounded-md shadow-sm transition-colors duration-200 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Post a comment or details about required revisions..."></textarea>
+                        </div>
+                        
+                        <div class="flex flex-col gap-3">
+                            <!-- Type Pill Selector -->
+                            <div class="flex justify-between items-center flex-wrap gap-2">
+                                <div class="inline-flex rounded-lg p-0.5 bg-gray-200" id="type-pill-selector">
+                                    <button type="button" onclick="setCommentType('comment')" id="type-btn-comment" class="px-3.5 py-1.5 rounded-md text-xs font-semibold transition-all duration-200 bg-white text-indigo-700 shadow-sm focus:outline-none">
+                                        General Comment
+                                    </button>
+                                    <button type="button" onclick="setCommentType('revision_request')" id="type-btn-revision" class="px-3.5 py-1.5 rounded-md text-xs font-semibold transition-all duration-200 text-gray-600 hover:text-gray-900 focus:outline-none">
+                                        ⚠️ Request Revision
+                                    </button>
+                                    <input type="hidden" name="type" id="comment-type-input" value="comment">
+                                </div>
+                                <x-primary-button id="submit-button">Post to Discussion</x-primary-button>
+                            </div>
+                            <!-- Helper warning message for revision request -->
+                            <div id="revision-helper-msg" class="hidden text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded p-2.5 flex items-start gap-2">
+                                <svg class="w-4 h-4 text-amber-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                                <span><strong>Important:</strong> Submitting a revision request will automatically set the proposal status to <em>Revision Pending</em>, enabling modifications and lock controls for the contractor.</span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -302,6 +428,216 @@
             
             document.getElementById('adjustment-submit-btn').innerText = 'Add Adjustment';
             document.getElementById('adjustment-cancel-btn').classList.add('hidden');
+        }
+
+        function showToast(message, type = 'success') {
+            const toast = document.createElement('div');
+            toast.className = `fixed bottom-4 right-4 z-50 px-4 py-2.5 rounded-lg text-white font-semibold text-sm shadow-lg transition-all duration-300 transform translate-y-10 opacity-0 ${
+                type === 'success' ? 'bg-green-600' : 'bg-red-600'
+            }`;
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            
+            // Trigger transition
+            setTimeout(() => {
+                toast.classList.remove('translate-y-10', 'opacity-0');
+            }, 10);
+
+            // Dismiss
+            setTimeout(() => {
+                toast.classList.add('translate-y-10', 'opacity-0');
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }, 3000);
+        }
+
+        function setCommentType(type) {
+            const typeInput = document.getElementById('comment-type-input');
+            const btnComment = document.getElementById('type-btn-comment');
+            const btnRevision = document.getElementById('type-btn-revision');
+            const textarea = document.getElementById('estimate-comment-content');
+            const helperMsg = document.getElementById('revision-helper-msg');
+            
+            if (!typeInput || !btnComment || !btnRevision || !textarea) return;
+            
+            typeInput.value = type;
+            
+            if (type === 'revision_request') {
+                btnComment.className = "px-3.5 py-1.5 rounded-md text-xs font-semibold transition-all duration-200 text-gray-600 hover:text-gray-900 focus:outline-none";
+                btnRevision.className = "px-3.5 py-1.5 rounded-md text-xs font-semibold transition-all duration-200 bg-amber-500 text-white shadow-sm focus:outline-none";
+                
+                textarea.className = "w-full text-sm border-amber-400 rounded-md shadow-sm transition-colors duration-200 focus:ring-amber-400 focus:border-amber-400";
+                if (helperMsg) helperMsg.classList.remove('hidden');
+            } else {
+                btnComment.className = "px-3.5 py-1.5 rounded-md text-xs font-semibold transition-all duration-200 bg-white text-indigo-700 shadow-sm focus:outline-none";
+                btnRevision.className = "px-3.5 py-1.5 rounded-md text-xs font-semibold transition-all duration-200 text-gray-600 hover:text-gray-900 focus:outline-none";
+                
+                textarea.className = "w-full text-sm border-gray-300 rounded-md shadow-sm transition-colors duration-200 focus:ring-indigo-500 focus:border-indigo-500";
+                if (helperMsg) helperMsg.classList.add('hidden');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('estimate-comment-form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const formData = new FormData(form);
+                    
+                    fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json',
+                            'X-Requested-With': 'XMLHttpRequest'
+                        }
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (data.success) {
+                            const comment = data.comment;
+                            
+                            const deleteBtnHtml = `<button onclick="deleteComment(${comment.project_id}, ${comment.id}, 'estimate', ${comment.estimate_id})" class="text-rose-600 hover:text-rose-900 font-semibold ml-2">Delete</button>`;
+                            
+                            if (comment.type === 'revision_request') {
+                                const emptyRev = document.getElementById('estimate-revisions-empty');
+                                if (emptyRev) emptyRev.remove();
+                                
+                                const commentHtml = `
+                                    <div class="bg-amber-50/30 p-4 rounded-lg border border-amber-100 shadow-sm transition hover:shadow-md" id="comment-container-${comment.id}">
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center gap-2">
+                                                <span class="font-bold text-sm text-gray-800">${comment.author_name}</span>
+                                                <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-amber-100 text-amber-800 uppercase font-sans">
+                                                    Client Request
+                                                </span>
+                                            </div>
+                                            <div class="flex items-center gap-2 text-xs text-gray-400">
+                                                <span>just now</span>
+                                                ${deleteBtnHtml}
+                                            </div>
+                                        </div>
+                                        <p class="text-sm text-gray-700 mt-2 whitespace-pre-line">${comment.content}</p>
+                                        <div class="mt-3 flex items-center justify-between border-t border-amber-100/50 pt-2" id="comment-status-bar-${comment.id}">
+                                            <span id="comment-badge-${comment.id}" class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-amber-100 text-amber-800 animate-pulse font-sans">
+                                                Pending Revision
+                                            </span>
+                                            <button id="comment-resolve-btn-${comment.id}" onclick="resolveRevision(${comment.project_id}, ${comment.id}, 'estimate', ${comment.estimate_id})" class="text-xs text-indigo-600 hover:text-indigo-900 font-bold underline">
+                                                Mark Resolved
+                                            </button>
+                                        </div>
+                                    </div>
+                                `;
+                                const revList = document.getElementById('estimate-revisions-list');
+                                if (revList) {
+                                    revList.insertAdjacentHTML('beforeend', commentHtml);
+                                }
+                            } else {
+                                const emptyComm = document.getElementById('estimate-comments-empty');
+                                if (emptyComm) emptyComm.remove();
+                                
+                                const commentHtml = `
+                                    <div class="bg-gray-50/50 p-4 rounded-lg border shadow-sm transition hover:shadow-md" id="comment-container-${comment.id}">
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center gap-2">
+                                                <span class="font-bold text-sm text-gray-800">${comment.author_name}</span>
+                                                <span class="px-2 py-0.5 rounded text-[10px] font-semibold capitalize font-sans bg-indigo-100 text-indigo-800">
+                                                    ${comment.author_role}
+                                                </span>
+                                            </div>
+                                            <div class="flex items-center gap-2 text-xs text-gray-400">
+                                                <span>just now</span>
+                                                ${deleteBtnHtml}
+                                            </div>
+                                        </div>
+                                        <p class="text-sm text-gray-700 mt-2 whitespace-pre-line">${comment.content}</p>
+                                    </div>
+                                `;
+                                const commentsList = document.getElementById('estimate-comments-list');
+                                if (commentsList) {
+                                    commentsList.insertAdjacentHTML('beforeend', commentHtml);
+                                    commentsList.scrollTop = commentsList.scrollHeight;
+                                }
+                            }
+                            
+                            form.reset();
+                            setCommentType('comment');
+                            showToast(data.message || 'Comment posted successfully!');
+                        } else {
+                            showToast(data.message || 'An error occurred.', 'error');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        showToast('Failed to post comment.', 'error');
+                    });
+                });
+            }
+        });
+
+        function resolveRevision(projectId, commentId, context, contextId) {
+            if (!confirm('Are you sure you want to mark this revision request as resolved?')) return;
+            const url = `/projects/${projectId}/comments/${commentId}/resolve`;
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                    'Accept': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showToast(data.message || 'Resolved successfully.');
+                    const badge = document.getElementById(`comment-badge-${commentId}`);
+                    if (badge) {
+                        badge.className = "inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-green-100 text-green-800";
+                        badge.textContent = "Resolved";
+                    }
+                    const resolveBtn = document.getElementById(`comment-resolve-btn-${commentId}`);
+                    if (resolveBtn) resolveBtn.remove();
+                } else {
+                    showToast(data.message || 'An error occurred.', 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showToast('Failed to resolve request.', 'error');
+            });
+        }
+
+        function deleteComment(projectId, commentId, context, contextId) {
+            if (!confirm('Are you sure you want to delete this comment?')) return;
+            const url = `/projects/${projectId}/comments/${commentId}`;
+            fetch(url, {
+                method: 'DELETE',
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                    'Accept': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showToast(data.message || 'Deleted successfully.');
+                    const container = document.getElementById(`comment-container-${commentId}`);
+                    if (container) container.remove();
+                } else {
+                    showToast(data.message || 'An error occurred.', 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showToast('Failed to delete comment.', 'error');
+            });
         }
     </script>
 </x-app-layout>

@@ -23,7 +23,7 @@
                                     <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Project</th>
                                     <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Client Name</th>
                                     <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Lot Area</th>
-                                    <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Requirement</th>
+                                    <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Specs</th>
                                     <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Latest Estimate</th>
                                     <th class="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase">Actions</th>
                                 </tr>
@@ -35,12 +35,9 @@
                                         <td class="px-4 py-3 font-medium text-gray-900">{{ $project->name }}</td>
                                         <td class="px-4 py-3">{{ $project->client_name }}</td>
                                         <td class="px-4 py-3">{{ $project->lot_area ? number_format((float) $project->lot_area, 2) . ' sqm' : '-' }}</td>
-                                        <td class="px-4 py-3">
-                                            @if($project->requirement)
-                                                <span class="inline-flex px-2 py-1 rounded text-xs font-medium bg-green-100 text-green-800">Complete</span>
-                                            @else
-                                                <span class="inline-flex px-2 py-1 rounded text-xs font-medium bg-yellow-100 text-yellow-800">Pending</span>
-                                            @endif
+                                        <td class="px-4 py-3 text-sm">
+                                            <span class="capitalize font-semibold text-gray-700">{{ $project->building_type ?: 'Residential' }}</span>
+                                            <div class="text-xs text-gray-500">GFA: {{ number_format((float) ($project->gross_floor_area ?: ($latestEstimate?->gross_floor_area ?: 0)), 2) }} sqm</div>
                                         </td>
                                         <td class="px-4 py-3">
                                             @if($latestEstimate)

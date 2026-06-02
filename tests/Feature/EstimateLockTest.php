@@ -61,7 +61,7 @@ class EstimateLockTest extends TestCase
         $response = $this->actingAs($estimator)
             ->post(route('projects.estimates.lock', [$project, $estimate]));
         $response->assertRedirect(route('projects.estimates.show', [$project, $estimate]));
-        $this->assertEquals('approved', $estimate->refresh()->status);
+        $this->assertEquals('locked', $estimate->refresh()->status);
 
         // 2. Estimator unlocks
         $response = $this->actingAs($estimator)
@@ -73,13 +73,13 @@ class EstimateLockTest extends TestCase
         $response = $this->actingAs($admin)
             ->post(route('projects.estimates.lock', [$project, $estimate]));
         $response->assertRedirect(route('projects.estimates.show', [$project, $estimate]));
-        $this->assertEquals('approved', $estimate->refresh()->status);
+        $this->assertEquals('locked', $estimate->refresh()->status);
     }
 
-    public function test_modifying_adjustments_is_blocked_on_locked_estimates(): void
+    public function test_assigned_client_can_approve_locked_estimate(): void
     {
-        $estimator = User::factory()->create(['role' => User::ROLE_ESTIMATOR]);
-        $project = Project::query()->create(['name' => 'Project A', 'client_name' => 'Client A']);
+        $client = User::factory()->create(['role' => User::ROLE_CLIENT]);
+        $project = Project::query()->create(['name' => 'Project A', 'client_name' => 'Client A', 'client_id' => $client->id]);
         $estimate = Estimate::query()->create([
             'project_id' => $project->id,
             'finish_level' => 'standard',
@@ -90,37 +90,143 @@ class EstimateLockTest extends TestCase
             'total_cost' => 50000,
             'cost_per_sqm' => 500,
             'generated_at' => now(),
-            'status' => 'approved', // Locked
+            'status' => 'locked',
         ]);
 
-        $adjustment = EstimateAdjustment::query()->create([
-            'estimate_id' => $estimate->id,
-            'name' => 'Adjustment 1',
-            'amount' => 1000,
-            'type' => 'material',
+        $response = $this->actingAs($client)
+            ->post(route('projects.estimates.approve', [$project, $estimate]));
+
+        $response->assertRedirect(route('projects.estimates.show', [$project, $estimate]));
+        $this->assertEquals('approved', $estimate->refresh()->status);
+    }
+
+    public function test_client_cannot_approve_draft_estimate(): void
+    {
+        $client = User::factory()->create(['role' => User::ROLE_CLIENT]);
+        $project = Project::query()->create(['name' => 'Project A', 'client_name' => 'Client A', 'client_id' => $client->id]);
+        $estimate = Estimate::query()->create([
+            'project_id' => $project->id,
+            'finish_level' => 'standard',
+            'gross_floor_area' => 100,
+            'wall_area' => 120,
+            'roof_area' => 110,
+            'slab_area' => 100,
+            'total_cost' => 50000,
+            'cost_per_sqm' => 500,
+            'generated_at' => now(),
+            'status' => 'draft',
         ]);
 
-        // Store blocked
+        $response = $this->actingAs($client)
+            ->post(route('projects.estimates.approve', [$project, $estimate]));
+
+        $response->assertStatus(400);
+        $this->assertEquals('draft', $estimate->refresh()->status);
+    }
+
+    public function test_unassigned_client_cannot_approve_locked_estimate(): void
+    {
+        $assignedClient = User::factory()->create(['role' => User::ROLE_CLIENT]);
+        $otherClient = User::factory()->create(['role' => User::ROLE_CLIENT]);
+        $project = Project::query()->create(['name' => 'Project A', 'client_name' => 'Client A', 'client_id' => $assignedClient->id]);
+        $estimate = Estimate::query()->create([
+            'project_id' => $project->id,
+            'finish_level' => 'standard',
+            'gross_floor_area' => 100,
+            'wall_area' => 120,
+            'roof_area' => 110,
+            'slab_area' => 100,
+            'total_cost' => 50000,
+            'cost_per_sqm' => 500,
+            'generated_at' => now(),
+            'status' => 'locked',
+        ]);
+
+        $response = $this->actingAs($otherClient)
+            ->post(route('projects.estimates.approve', [$project, $estimate]));
+
+        $response->assertStatus(403);
+        $this->assertEquals('locked', $estimate->refresh()->status);
+    }
+
+    public function test_estimator_and_admin_cannot_approve_estimates(): void
+    {
+        $client = User::factory()->create(['role' => User::ROLE_CLIENT]);
+        $estimator = User::factory()->create(['role' => User::ROLE_ESTIMATOR]);
+        $admin = User::factory()->create(['role' => User::ROLE_ADMIN]);
+        $project = Project::query()->create(['name' => 'Project A', 'client_name' => 'Client A', 'client_id' => $client->id]);
+        $estimate = Estimate::query()->create([
+            'project_id' => $project->id,
+            'finish_level' => 'standard',
+            'gross_floor_area' => 100,
+            'wall_area' => 120,
+            'roof_area' => 110,
+            'slab_area' => 100,
+            'total_cost' => 50000,
+            'cost_per_sqm' => 500,
+            'generated_at' => now(),
+            'status' => 'locked',
+        ]);
+
         $this->actingAs($estimator)
-            ->post(route('projects.estimates.adjustments.store', [$project, $estimate]), [
-                'name' => 'Adjustment 2',
-                'amount' => 500,
-                'type' => 'labor',
-            ])
+            ->post(route('projects.estimates.approve', [$project, $estimate]))
             ->assertStatus(403);
 
-        // Update blocked
-        $this->actingAs($estimator)
-            ->put(route('projects.estimates.adjustments.update', [$project, $estimate, $adjustment]), [
-                'name' => 'Adjustment 1 Edited',
-                'amount' => 2000,
+        $this->actingAs($admin)
+            ->post(route('projects.estimates.approve', [$project, $estimate]))
+            ->assertStatus(403);
+
+        $this->assertEquals('locked', $estimate->refresh()->status);
+    }
+
+    public function test_modifying_adjustments_is_blocked_on_non_draft_estimates(): void
+    {
+        $estimator = User::factory()->create(['role' => User::ROLE_ESTIMATOR]);
+        $project = Project::query()->create(['name' => 'Project A', 'client_name' => 'Client A']);
+
+        foreach (['locked', 'approved'] as $status) {
+            $estimate = Estimate::query()->create([
+                'project_id' => $project->id,
+                'finish_level' => 'standard',
+                'gross_floor_area' => 100,
+                'wall_area' => 120,
+                'roof_area' => 110,
+                'slab_area' => 100,
+                'total_cost' => 50000,
+                'cost_per_sqm' => 500,
+                'generated_at' => now(),
+                'status' => $status,
+            ]);
+
+            $adjustment = EstimateAdjustment::query()->create([
+                'estimate_id' => $estimate->id,
+                'name' => 'Adjustment 1',
+                'amount' => 1000,
                 'type' => 'material',
-            ])
-            ->assertStatus(403);
+            ]);
 
-        // Destroy blocked
-        $this->actingAs($estimator)
-            ->delete(route('projects.estimates.adjustments.destroy', [$project, $estimate, $adjustment]))
-            ->assertStatus(403);
+            // Store blocked
+            $this->actingAs($estimator)
+                ->post(route('projects.estimates.adjustments.store', [$project, $estimate]), [
+                    'name' => 'Adjustment 2',
+                    'amount' => 500,
+                    'type' => 'labor',
+                ])
+                ->assertStatus(403);
+
+            // Update blocked
+            $this->actingAs($estimator)
+                ->put(route('projects.estimates.adjustments.update', [$project, $estimate, $adjustment]), [
+                    'name' => 'Adjustment 1 Edited',
+                    'amount' => 2000,
+                    'type' => 'material',
+                ])
+                ->assertStatus(403);
+
+            // Destroy blocked
+            $this->actingAs($estimator)
+                ->delete(route('projects.estimates.adjustments.destroy', [$project, $estimate, $adjustment]))
+                ->assertStatus(403);
+        }
     }
 }

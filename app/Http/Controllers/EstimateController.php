@@ -45,7 +45,7 @@ class EstimateController extends Controller
         abort_unless((int) $estimate->project_id === (int) $project->id, 404);
         Gate::authorize('view', $estimate);
 
-        $estimate->load(['project', 'projectRequirement', 'lines', 'breakdowns', 'adjustments']);
+        $estimate->load(['project', 'projectRequirement', 'lines', 'breakdowns', 'adjustments', 'comments']);
 
         return view('estimates.show', compact('project', $estimate ? 'estimate' : []));
     }
